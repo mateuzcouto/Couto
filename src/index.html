@@ -257,6 +257,49 @@
             margin-left: 0.5px;
         }
 
+        .clan-badge,
+        .clan-badge-small {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 14px rgba(2, 6, 23, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.18);
+            overflow: hidden;
+        }
+
+        .clan-badge {
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+
+        .clan-badge-small {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
+        .clan-icon-svg {
+            width: 62%;
+            height: 62%;
+            stroke: #f8fafc;
+            stroke-width: 1.85;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            filter: drop-shadow(0 1px 2px rgba(2, 6, 23, 0.55));
+        }
+
+        .clan-option-icon {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.16);
+        }
+
         .signature-neon { color: #ff1e56; text-shadow: 0 0 6px rgba(255, 30, 86, 0.95), 0 0 12px rgba(255, 30, 86, 0.85), 0 0 24px rgba(225, 8, 78, 0.75), 0 0 42px rgba(190, 18, 60, 0.55); animation: flicker 1.5s infinite alternate; position: relative; z-index: 2; }
 
 
@@ -402,200 +445,6 @@
 
 
         /* Animação: Flash de Combate Ativo */
-
-
-
-        @keyframes battle-flash {
-
-
-
-            0%, 100% { background-color: rgba(239, 68, 68, 0.3); text-shadow: 0 0 5px rgba(239, 68, 68, 0.4); }
-
-
-
-            50% { background-color: rgba(239, 68, 68, 0.7); text-shadow: 0 0 20px rgba(239, 68, 68, 0.9), 0 0 30px rgba(255, 107, 107, 0.6); }
-
-
-
-        }
-
-
-
-
-
-
-
-        /* Animação: Pokébola Captura Rápida */
-
-
-
-        @keyframes pokeball-battle-spin {
-
-
-
-            0% { transform: rotate(0deg); }
-
-
-
-            100% { transform: rotate(360deg); }
-
-
-
-        }
-
-
-
-
-
-
-
-        /* Animação: Banner Pulsação Dramática */
-
-
-
-        @keyframes banner-pulse-intense {
-
-
-
-            0%, 100% { opacity: 1; transform: scaleX(1); }
-
-
-
-            50% { opacity: 0.8; transform: scaleX(1.08); }
-
-
-
-        }
-
-
-
-
-
-
-
-        /* Estilo Epic Live Battle Banner */
-
-
-
-        .battle-live-banner {
-
-
-
-            animation: battle-flash 1s ease-in-out infinite, banner-pulse-intense 2s ease-in-out infinite !important;
-
-
-
-            background: linear-gradient(90deg, rgba(239, 68, 68, 0.4) 0%, rgba(220, 38, 38, 0.6) 50%, rgba(239, 68, 68, 0.4) 100%) !important;
-
-
-
-            border: 2px solid #ef4444 !important;
-
-
-
-            border-radius: 10px !important;
-
-
-
-            box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.1) !important;
-
-
-
-            backdrop-filter: blur(8px) !important;
-
-
-
-        }
-
-
-
-
-
-
-
-        /* Pokébola Girando no Banner */
-
-
-
-        .pokeball-banner-icon {
-
-
-
-            display: inline-block;
-
-
-
-            animation: pokeball-battle-spin 1s linear infinite;
-
-
-
-            font-size: 1.2em;
-
-
-
-            margin-right: 5px;
-
-
-
-        }
-
-
-
-
-
-
-
-        @keyframes level-up { 0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7); border-color: #facc15; } 70% { box-shadow: 0 0 0 15px rgba(250, 204, 21, 0); border-color: #334155; } 100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); border-color: #334155; } }
-
-
-
-        .animate-level-up { animation: level-up 1s ease-out forwards; }
-
-
-
-        
-
-
-
-        @keyframes text-neon-glow {
-
-
-
-            0% { color: #fff; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #3b82f6, 0 0 40px #3b82f6; }
-
-
-
-            50% { color: #93c5fd; text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #3b82f6, 0 0 80px #3b82f6; transform: scale(1.02); }
-
-
-
-            100% { color: #fff; text-shadow: none; transform: scale(1); }
-
-
-
-        }
-
-
-
-        .animate-text-glow { animation: text-neon-glow 1s ease-out; display: inline-block; }
-
-
-
-
-
-
-
-        @keyframes task-done { 0% { transform: scale(1); background-color: rgba(16, 185, 129, 0.2); border-color: rgba(16, 185, 129, 0.5); } 50% { transform: scale(1.02); background-color: rgba(16, 185, 129, 0.4); border-color: rgb(16, 185, 129); } 100% { transform: scale(1); background-color: rgba(2, 6, 23, 0.8); border-color: #1e293b; } }
-
-
-
-        .animate-task-done { animation: task-done 0.5s ease-out; }
-
-
-
-        
-
-
 
         /* ESTILOS DO POKÉLOG */
 
@@ -1634,6 +1483,22 @@
 
 
 
+
+
+
+                        <button onclick="window.ui.switchTab('cycle')" class="flex items-center gap-3 w-full text-left px-3 py-3 rounded-xl hover:bg-slate-800 transition-colors group">
+
+
+
+                            <span class="text-base">🗓️</span>
+
+
+
+                            <span class="text-[10px] font-black text-slate-300 group-hover:text-amber-300 uppercase tracking-widest">Ciclo de Bosses & Eventos</span>
+
+
+
+                        </button>
 
 
 
@@ -3653,6 +3518,28 @@
 
 
 
+        <!-- VISÃO: CICLO DE BOSSES & EVENTOS -->
+
+        <div id="view-cycle" class="hidden animate-fade">
+
+            <header class="mb-6 text-left">
+
+                <h2 class="text-2xl font-black text-white tracking-tight leading-none uppercase italic border-l-4 border-amber-500 pl-4 mb-2">Ciclo de Bosses & Eventos</h2>
+
+                <p class="text-xs text-slate-400 font-medium pl-5">Planeje sua rotina com antecedência e visualize claramente os eventos globais por data.</p>
+
+            </header>
+
+            <div id="visitor-cycle-container" class="max-w-4xl mx-auto bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+
+                <p class="text-xs text-slate-500 italic text-center">A carregar ciclo de eventos...</p>
+
+            </div>
+
+        </div>
+
+
+
         <!-- VISÃO: SOBRE O PROJETO -->
 
 
@@ -4177,7 +4064,7 @@
 
 
 
-            <span class="text-xs font-black uppercase tracking-widest whitespace-nowrap">Nova Versão Disponível! ?</span>
+            <span class="text-xs font-black uppercase tracking-widest whitespace-nowrap">Nova Versão Disponível! 😎✌️</span>
 
 
 
@@ -4329,7 +4216,7 @@
 
 
 
-            <h3 class="text-sm font-black text-white uppercase italic mb-1">Tem a certeza~</h3>
+            <h3 class="text-sm font-black text-white uppercase italic mb-1">Tem a certeza?</h3>
 
 
 
@@ -4817,7 +4704,7 @@
 
 
 
-                            <span class="bg-red-600 clan-badge-small" id="current-clan-icon">⚔️</span>
+                            <span class="bg-red-600 clan-badge-small" id="current-clan-icon">🔥</span>
 
 
 
@@ -5605,7 +5492,7 @@
 
 
 
-            <h3 id="delete-title" class="text-sm font-black text-white uppercase italic mb-1">Apagar Personagem~</h3>
+            <h3 id="delete-title" class="text-sm font-black text-white uppercase italic mb-1">Apagar Personagem?</h3>
 
 
 
@@ -5677,25 +5564,27 @@
 
 
 
-                <!-- VERSÃO 1.3.19 -->
+                <!-- VERSÃO 1.3.20 -->
 
                 <div class="border-l-2 border-emerald-500 pl-4 relative">
 
                     <div class="absolute w-2 h-2 bg-emerald-500 rounded-full -left-[5px] top-1"></div>
 
-                    <span class="text-[9px] font-black text-emerald-400 uppercase tracking-widest">Atualização v1.3.19</span>
+                    <span class="text-[9px] font-black text-emerald-400 uppercase tracking-widest">Atualização v1.3.20</span>
 
-                    <h4 class="text-xs font-bold text-white uppercase mt-1 mb-2">Correção do Ciclo Global de Bosses</h4>
+                    <h4 class="text-xs font-bold text-white uppercase mt-1 mb-2">Ciclo Global + Estabilidade Visual</h4>
 
                     <ul class="text-[11px] text-slate-400 list-disc ml-4 space-y-1.5 font-medium">
 
-                        <li><b>Ordem Global Preservada:</b> Confirmada e aplicada a sequência fixa global Sunflora → Magcargo → Tyranitar → Dragonair → Mamoswine, sem troca de ordem entre eventos. → ☀️</li>
+                        <li><b>Versão Oficial:</b> Aplicação atualizada e publicada como <b>v1.3.20</b>.</li>
 
-                        <li><b>Horários Ajustados:</b> Correção do alinhamento dos horários para respeitar a rotação contínua (12h, 16h, 20h, 23h) conforme o boss anterior.</li>
+                        <li><b>Novo Painel Público de Agenda:</b> Adicionada a aba <b>Ciclo de Bosses &amp; Eventos</b> para visitantes visualizarem o cronograma diário completo.</li>
 
-                        <li><b>Compatibilidade com Configuração Antiga:</b> Configurações legadas com data-base incorreta foram migradas automaticamente para manter o ciclo correto para todos os visitantes.</li>
+                        <li><b>Ciclo Global Corrigido:</b> Sequência dos bosses estabilizada em Sunflora → Magcargo → Tyranitar → Dragonair → Mamoswine, com rotação correta às 12h, 16h, 20h e 23h.</li>
 
-                        <li><b>Exemplo Validado:</b> Em 20/03, 20h = Sunflora e 23h = Magcargo; em 21/03, 12h = Mamoswine, seguindo a ordem normal. → ☀️</li>
+                        <li><b>Poképark Integrado:</b> Agenda exibe também os horários de Poképark (11h, 15h, 21h) nos dias válidos, com destaque <b>AGORA</b> no evento ativo.</li>
+
+                        <li><b>Correção de Exibição:</b> Removido vazamento de código no topo da página e restaurado o visual original do cabeçalho (cores e tipografia).</li>
 
                     </ul>
 
@@ -6543,7 +6432,7 @@
 
 
 
-    const APP_VERSION = "1.3.19"; 
+    const APP_VERSION = "1.3.20"; 
 
 
 
@@ -7295,7 +7184,11 @@
 
 
 
-            bossCycleStartDate: ''
+            bossCycleStartDate: '',
+
+            adminScheduleDate: '',
+
+            visitorScheduleDate: ''
 
 
 
@@ -7833,43 +7726,130 @@
 
 
 
+    const clanIcon = (baseColor, auraColor, symbol) => `
+        <svg class='clan-icon-svg' viewBox='0 0 24 24' aria-hidden='true'>
+            <circle cx='12' cy='12' r='10' fill='${baseColor}' />
+            <circle cx='12' cy='12' r='10' fill='${auraColor}' opacity='0.22' />
+            <circle cx='12' cy='12' r='9.15' fill='none' stroke='rgba(248,250,252,0.72)' stroke-width='1' />
+            <g fill='#f8fafc' stroke='#f8fafc' stroke-width='0.45' stroke-linecap='round' stroke-linejoin='round'>
+                ${symbol}
+            </g>
+        </svg>
+    `;
+
+
+
     const clanData = {
 
 
 
-        volcanic: { name: "Volcanic", color: "bg-red-600", icon: "🌋️", border: "border-red-500", text: "text-red-400" },
+        orebound: {
+            name: "Orebound",
+            color: "bg-amber-800",
+            icon: clanIcon('#6b3f1f', '#fbbf24', "<path d='M12 6l4 3-1.6 5H9.6L8 9z'/><path d='M8 9l4 3 4-3' fill='none' stroke='#e2e8f0' stroke-width='0.8'/><path d='M12 6v6' fill='none' stroke='#e2e8f0' stroke-width='0.8'/>") ,
+            glow: 'rgba(245, 158, 11, 0.78)',
+            border: "border-amber-700",
+            text: "text-amber-500"
+        },
 
 
 
-        seavell: { name: "Seavell", color: "bg-blue-600", icon: "🌊️", border: "border-blue-500", text: "text-blue-400" },
+        volcanic: {
+            name: "Volcanic",
+            color: "bg-red-600",
+            icon: clanIcon('#7f1d1d', '#fb7185', "<path d='M12 4c1.9 2.4 2.7 3.6 2.7 5a2.7 2.7 0 0 1-5.4 0c0-1.4.9-2.8 2.7-5z'/><path d='M12 9.2c3 2 4.5 3.8 4.5 6a4.5 4.5 0 1 1-9 0c0-2.2 1.6-4 4.5-6z'/>") ,
+            glow: 'rgba(239, 68, 68, 0.78)',
+            border: "border-red-500",
+            text: "text-red-400"
+        },
 
 
 
-        orebound: { name: "Orebound", color: "bg-amber-800", icon: "⛏️", border: "border-amber-700", text: "text-amber-500" },
+        seavell: {
+            name: "Seavell",
+            color: "bg-blue-600",
+            icon: clanIcon('#1e3a8a', '#38bdf8', "<path d='M12 4c3 3.7 5 6.1 5 8.8A5 5 0 0 1 7 12.8C7 10.1 9 7.7 12 4z'/><path d='M8.7 14c1 .8 2.1.8 3.3 0 1.1-.8 2.2-.8 3.3 0' fill='none' stroke='#e2e8f0' stroke-width='0.75'/>") ,
+            glow: 'rgba(56, 189, 248, 0.78)',
+            border: "border-blue-500",
+            text: "text-blue-400"
+        },
 
 
 
-        wingeon: { name: "Wingeon", color: "bg-sky-400", icon: "🌪️", border: "border-sky-300", text: "text-sky-300" },
+        naturia: {
+            name: "Naturia",
+            color: "bg-green-600",
+            icon: clanIcon('#14532d', '#4ade80', "<path d='M19 5c-7.8 0-12.5 4-12.5 9a4.5 4.5 0 0 0 4.5 4.5c5.8 0 8-4.8 8-13.5z'/><path d='M8.4 15.4c2.9-1.1 5.3-3.4 7.1-6.9' fill='none' stroke='#e2e8f0' stroke-width='0.75'/>") ,
+            glow: 'rgba(74, 222, 128, 0.78)',
+            border: "border-green-500",
+            text: "text-green-400"
+        },
 
 
 
-        naturia: { name: "Naturia", color: "bg-green-600", icon: "🌿️", border: "border-green-500", text: "text-green-400" },
+        raibolt: {
+            name: "Raibolt",
+            color: "bg-yellow-500",
+            icon: clanIcon('#854d0e', '#facc15', "<path d='M13 3L6 12h5l-1 9 8-11h-5z'/>") ,
+            glow: 'rgba(250, 204, 21, 0.8)',
+            border: "border-yellow-400",
+            text: "text-yellow-400"
+        },
 
 
 
-        malefic: { name: "Malefic", color: "bg-purple-700", icon: "☠️", border: "border-purple-500", text: "text-purple-400" },
+        wingeon: {
+            name: "Wingeon",
+            color: "bg-sky-400",
+            icon: clanIcon('#1e3a8a', '#7dd3fc', "<path d='M4 14c4.2-5.7 8.2-7.9 16-8.7-1.7 3.8-4.7 7.4-8.8 9.2l-1.1 3.5-2.1-2.6-4-1.4z'/><path d='M9.4 12.9l4-3.8' fill='none' stroke='#e2e8f0' stroke-width='0.75'/>") ,
+            glow: 'rgba(125, 211, 252, 0.78)',
+            border: "border-sky-300",
+            text: "text-sky-300"
+        },
 
 
 
-        raibolt: { name: "Raibolt", color: "bg-yellow-500", icon: "⚡", border: "border-yellow-400", text: "text-yellow-400" },
+        malefic: {
+            name: "Malefic",
+            color: "bg-purple-700",
+            icon: clanIcon('#3b0764', '#a855f7', "<path d='M8 7a4 4 0 0 1 8 0v1.6h1a2 2 0 0 1 2 2v2.8a7 7 0 0 1-14 0v-2.8a2 2 0 0 1 2-2h1z'/><circle cx='10' cy='12' r='0.9'/><circle cx='14' cy='12' r='0.9'/><path d='M9 15.7h6' fill='none' stroke='#e2e8f0' stroke-width='0.75'/>") ,
+            glow: 'rgba(168, 85, 247, 0.8)',
+            border: "border-purple-500",
+            text: "text-purple-400"
+        },
 
 
 
-        psycraft: { name: "Psycraft", color: "bg-pink-500", icon: "🔮️", border: "border-pink-400", text: "text-pink-400" },
+        psycraft: {
+            name: "Psycraft",
+            color: "bg-pink-500",
+            icon: clanIcon('#831843', '#f472b6', "<ellipse cx='12' cy='12' rx='7.6' ry='4.8'/><circle cx='12' cy='12' r='2.2'/><circle cx='12' cy='12' r='0.8' fill='#7e22ce' stroke='none'/>") ,
+            glow: 'rgba(244, 114, 182, 0.8)',
+            border: "border-pink-400",
+            text: "text-pink-400"
+        },
 
 
 
-        ironhard: { name: "Ironhard", color: "bg-slate-500", icon: "⚙️", border: "border-slate-400", text: "text-slate-300" }
+        gardestrike: {
+            name: "Gardestrike",
+            color: "bg-orange-600",
+            icon: clanIcon('#7c2d12', '#fb923c', "<path d='M5 14h14v5H5z'/><path d='M7 14V9h2v5M10 14V8h2v6M13 14V9h2v5M16 14v-3h2v3' fill='none' stroke='#e2e8f0' stroke-width='0.85'/>") ,
+            glow: 'rgba(251, 146, 60, 0.8)',
+            border: "border-orange-500",
+            text: "text-orange-400"
+        },
+
+
+
+        ironhard: {
+            name: "Ironhard",
+            color: "bg-slate-500",
+            icon: clanIcon('#334155', '#94a3b8', "<circle cx='12' cy='12' r='2.6'/><path d='M12 2.4v3M12 18.6v3M2.4 12h3M18.6 12h3M5 5l2.1 2.1M16.9 16.9L19 19M19 5l-2.1 2.1M7.1 16.9L5 19' fill='none' stroke='#e2e8f0' stroke-width='0.85'/>") ,
+            glow: 'rgba(148, 163, 184, 0.75)',
+            border: "border-slate-400",
+            text: "text-slate-300"
+        }
 
 
 
@@ -7906,6 +7886,10 @@
 
 
     let rainbowOrbs = [];
+
+    function cleanOrbDescription(desc) {
+        return String(desc || '').replace(/\s\?\s/g, ' - ').trim();
+    }
 
 
 
@@ -8033,7 +8017,7 @@
 
 
 
-                if (comment && comment !== 'undefined' && comment !== 'null') desc += ` ? ${comment}`; 
+                if (comment && comment !== 'undefined' && comment !== 'null') desc += ` - ${comment}`; 
 
 
 
@@ -8165,7 +8149,7 @@
 
 
 
-                                desc: `Coords: [${c}]` + (obs && obs !== 'undefined' ? ` ? ${obs}` : '')
+                                desc: cleanOrbDescription(`Coords: [${c}]` + (obs && obs !== 'undefined' ? ` - ${obs}` : ''))
 
 
 
@@ -8221,7 +8205,7 @@
 
 
 
-                                finalDesc = `Coords: [${coords}]` + (obs && obs !== 'undefined' ? ` ? ${obs}` : '');
+                                finalDesc = `Coords: [${coords}]` + (obs && obs !== 'undefined' ? ` - ${obs}` : '');
 
 
 
@@ -8233,7 +8217,7 @@
 
 
 
-                            return { id: id, location: region, rawCoords: coords, desc: finalDesc };
+                            return { id: id, location: region, rawCoords: coords, desc: cleanOrbDescription(finalDesc) };
 
 
 
@@ -8297,19 +8281,7 @@
 
 
 
-            const container = document.getElementById('orbs-container');
-
-
-
-            if(container) {
-
-
-
-                container.innerHTML = '<p class="text-xs text-red-500 text-center italic mt-4 font-bold">Erro de conexão ao Banco de Orbs do GitHub.</p>';
-
-
-
-            }
+            container.innerHTML = '<p class="text-xs text-red-500 text-center italic mt-4 font-bold">Erro de conexão ao Banco de Orbs do GitHub.</p>';
 
 
 
@@ -8713,7 +8685,7 @@
 
 
 
-                                    <span class="text-[10px] font-bold ${orb.isDone ? 'text-slate-500 line-through' : 'text-slate-200'}">${orb.desc}</span>
+                                    <span class="text-[10px] font-bold ${orb.isDone ? 'text-slate-500 line-through' : 'text-slate-200'}">${cleanOrbDescription(orb.desc)}</span>
 
 
 
@@ -9121,15 +9093,33 @@
 
 
 
-        const startDate = adminSettings.bossCycleStartDate
+        const parseIsoDate = (value, fallbackDate) => {
+
+            const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((value || '').trim());
+
+            if (!m) return fallbackDate;
+
+            const y = Number(m[1]);
+
+            const mo = Number(m[2]) - 1;
+
+            const d = Number(m[3]);
+
+            const parsed = new Date(y, mo, d);
+
+            if (parsed.getFullYear() !== y || parsed.getMonth() !== mo || parsed.getDate() !== d) {
+
+                return fallbackDate;
+
+            }
+
+            return parsed;
+
+        };
 
 
 
-            ? new Date(`${adminSettings.bossCycleStartDate}T00:00:00`)
-
-
-
-            : new Date(2026, 2, 17); // 17/03/2026 = Sunflora (dia 0)
+        const startDate = parseIsoDate(adminSettings.bossCycleStartDate, new Date(2026, 2, 17)); // 17/03/2026 = Sunflora (dia 0)
 
 
 
@@ -9141,7 +9131,9 @@
 
 
 
-        const daysDiff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        const daysDiff = Math.floor((todayStart - startDate) / (1000 * 60 * 60 * 24));
 
 
 
@@ -9153,7 +9145,7 @@
 
 
 
-        const startBossIndex = daysDiff % bossSequence.length;
+        const startBossIndex = ((daysDiff % bossSequence.length) + bossSequence.length) % bossSequence.length;
 
 
 
@@ -9233,19 +9225,29 @@
 
 
 
-        const bossAtHour0 = getBossForHour(0);
+        const bossAtHour0 = getBossForHour(0) || 'Sunflora';
 
 
 
-        const bossAtHour1 = getBossForHour(1);
+        const bossAtHour1 = getBossForHour(1) || 'Magcargo';
 
 
 
-        const bossAtHour2 = getBossForHour(2);
+        const bossAtHour2 = getBossForHour(2) || 'Tyranitar';
 
 
 
-        const bossAtHour3 = getBossForHour(3);
+        const bossAtHour3 = getBossForHour(3) || 'Dragonair';
+
+
+
+        const buildBossEvent = (bossName, h, m, fallbackKey) => {
+
+            const meta = bossData[bossName] || { key: fallbackKey };
+
+            return { name: bossName, bossName: bossName, h, m, duration: 15, key: meta.key, displayName: bossName };
+
+        };
 
 
 
@@ -9257,19 +9259,19 @@
 
 
 
-            { name: bossAtHour0, bossName: bossAtHour0, h: 12, m: 0, duration: 15, key: bossData[bossAtHour0].key, displayName: bossAtHour0 },
+            buildBossEvent(bossAtHour0, 12, 0, 'boss12'),
 
 
 
-            { name: bossAtHour1, bossName: bossAtHour1, h: 16, m: 0, duration: 15, key: bossData[bossAtHour1].key, displayName: bossAtHour1 },
+            buildBossEvent(bossAtHour1, 16, 0, 'boss16'),
 
 
 
-            { name: bossAtHour2, bossName: bossAtHour2, h: 20, m: 0, duration: 15, key: bossData[bossAtHour2].key, displayName: bossAtHour2 },
+            buildBossEvent(bossAtHour2, 20, 0, 'boss20'),
 
 
 
-            { name: bossAtHour3, bossName: bossAtHour3, h: 23, m: 0, duration: 15, key: bossData[bossAtHour3].key, displayName: bossAtHour3 }
+            buildBossEvent(bossAtHour3, 23, 0, 'boss23')
 
 
 
@@ -11471,7 +11473,270 @@
 
 
 
+    function renderVisitorCyclePanel(container) {
+
+        const settings = getAdminSettings();
+
+        const bossSequence = ['Sunflora', 'Magcargo', 'Tyranitar', 'Dragonair', 'Mamoswine'];
+
+        const bossMeta = {
+            Sunflora: { emoji: '☀️', energy: 'AMARELA' },
+            Magcargo: { emoji: '♨️', energy: 'VERMELHA' },
+            Tyranitar: { emoji: '☠️', energy: 'ROXA' },
+            Dragonair: { emoji: '⚡️', energy: 'AZUL' },
+            Mamoswine: { emoji: '❄️', energy: 'BRANCA' }
+        };
+
+        const now = new Date();
+        const todayDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const toIsoDate = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        const parseIsoDate = (value, fallbackDate) => {
+            const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((value || '').trim());
+            if (!m) return fallbackDate;
+            const y = Number(m[1]);
+            const mo = Number(m[2]) - 1;
+            const d = Number(m[3]);
+            const parsed = new Date(y, mo, d);
+            if (parsed.getFullYear() !== y || parsed.getMonth() !== mo || parsed.getDate() !== d) return fallbackDate;
+            return parsed;
+        };
+
+        const todayIso = toIsoDate(todayDate);
+        const selectedDateSource = settings.visitorScheduleDate || todayIso;
+        const safeSelectedDate = parseIsoDate(selectedDateSource, todayDate);
+        const safeSelectedIso = toIsoDate(safeSelectedDate);
+
+        const cycleStartDate = settings.bossCycleStartDate
+            ? parseIsoDate(settings.bossCycleStartDate, new Date(2026, 2, 17))
+            : new Date(2026, 2, 17);
+
+        const daysDiff = Math.floor((safeSelectedDate - cycleStartDate) / (1000 * 60 * 60 * 24));
+        const startBossIndex = ((daysDiff % bossSequence.length) + bossSequence.length) % bossSequence.length;
+
+        const globalSchedule = [
+            { h: 12, m: 0, name: bossSequence[(startBossIndex + 0) % bossSequence.length], type: 'boss', duration: 15 },
+            { h: 16, m: 0, name: bossSequence[(startBossIndex + 1) % bossSequence.length], type: 'boss', duration: 15 },
+            { h: 20, m: 0, name: bossSequence[(startBossIndex + 2) % bossSequence.length], type: 'boss', duration: 15 },
+            { h: 23, m: 0, name: bossSequence[(startBossIndex + 3) % bossSequence.length], type: 'boss', duration: 15 }
+        ];
+
+        const isParkDay = [0, 2, 4, 6].includes(safeSelectedDate.getDay());
+        if (isParkDay) {
+            globalSchedule.push(
+                { h: 11, m: 0, name: 'Poképark', type: 'park', duration: 30 },
+                { h: 15, m: 0, name: 'Poképark', type: 'park', duration: 30 },
+                { h: 21, m: 0, name: 'Poképark', type: 'park', duration: 30 }
+            );
+        }
+
+        globalSchedule.sort((a, b) => (a.h * 60 + a.m) - (b.h * 60 + b.m));
+
+        const nowMinutes = now.getHours() * 60 + now.getMinutes();
+        const isSelectedToday = safeSelectedIso === todayIso;
+        const selectedDateLabel = safeSelectedDate.toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit', year: 'numeric' });
+        const parkStatusLabel = isParkDay ? 'Dia com Poképark' : 'Dia sem Poképark';
+
+        const globalListHtml = globalSchedule.map((item) => {
+            const eventStartMinutes = item.h * 60 + item.m;
+            const eventEndMinutes = eventStartMinutes + item.duration;
+            const isActiveNow = isSelectedToday && nowMinutes >= eventStartMinutes && nowMinutes < eventEndMinutes;
+            const hh = String(item.h).padStart(2, '0');
+            const mm = String(item.m).padStart(2, '0');
+            const activeBadge = isActiveNow ? ' <span class="text-emerald-300 font-black">(AGORA)</span>' : '';
+            const rowClass = isActiveNow ? 'text-emerald-200 font-black' : 'text-slate-300';
+            if (item.type === 'park') {
+                return `<li class="${rowClass}"><span class="text-amber-300">${hh}:${mm}</span> - 🎪️ Poképark <span class="text-cyan-400">(EVENTO)</span>${activeBadge}</li>`;
+            }
+            const data = bossMeta[item.name] || { emoji: '⚔️', energy: '--' };
+            return `<li class="${rowClass}"><span class="text-amber-300">${hh}:${mm}</span> - ${data.emoji} ${item.name} <span class="text-slate-500">(${data.energy})</span>${activeBadge}</li>`;
+        }).join('');
+
+        container.innerHTML = `
+            <div class="space-y-4">
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-sm font-black text-white mb-3">🧭 Planejamento do Treinador</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="text-[9px] font-black text-slate-400 uppercase">Data para Visualizar Agenda</label>
+                            <div class="flex gap-2">
+                                <input type="date" id="visitor-schedule-date" value="${safeSelectedIso}" onchange="window.ui.updateVisitorScheduleDate(this.value)" oninput="window.ui.updateVisitorScheduleDate(this.value)" class="flex-1 bg-slate-900 border border-slate-700 rounded p-2 text-xs text-white">
+                                <button onclick="window.ui.resetVisitorScheduleDate()" class="bg-slate-700 hover:bg-slate-600 text-white font-black px-3 text-xs rounded">Hoje</button>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700">
+                            <p class="text-[9px] font-black text-slate-400 mb-2">🌐 Eventos Globais (${selectedDateLabel}):</p>
+                            <p class="text-[9px] text-slate-500 mb-2">${parkStatusLabel}</p>
+                            <ul class="text-[10px] text-slate-300 space-y-1">${globalListHtml}</ul>
+                            <p class="text-[9px] text-slate-500 mt-2">Poképark ocorre em dom/ter/qui/sáb (11h, 15h e 21h).</p>
+                            <div class="mt-2 rounded border border-slate-700 bg-slate-950/60 p-2">
+                                <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Legenda de Duração</p>
+                                <ul class="text-[10px] text-slate-300 space-y-1">
+                                    <li><span class="text-amber-300">Boss Global</span>: Média de tempo 8 a 12 min</li>
+                                    <li><span class="text-cyan-300">Poképark</span>: Tempo de evento 30 min</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+
+
     function renderAdminContent(container) {
+
+
+
+        const settings = getAdminSettings();
+
+
+
+        const bossSequence = ['Sunflora', 'Magcargo', 'Tyranitar', 'Dragonair', 'Mamoswine'];
+
+
+
+        const bossMeta = {
+
+            Sunflora: { emoji: '☀️', energy: 'AMARELA' },
+
+            Magcargo: { emoji: '♨️', energy: 'VERMELHA' },
+
+            Tyranitar: { emoji: '☠️', energy: 'ROXA' },
+
+            Dragonair: { emoji: '⚡️', energy: 'AZUL' },
+
+            Mamoswine: { emoji: '❄️', energy: 'BRANCA' }
+
+        };
+
+
+
+        const startDate = settings.bossCycleStartDate
+
+            ? new Date(`${settings.bossCycleStartDate}T00:00:00`)
+
+            : new Date(2026, 2, 17);
+
+
+
+        const now = new Date();
+
+        const todayDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        const toIsoDate = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+
+        const parseIsoDate = (value, fallbackDate) => {
+
+            const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((value || '').trim());
+
+            if (!m) return fallbackDate;
+
+            const y = Number(m[1]);
+
+            const mo = Number(m[2]) - 1;
+
+            const d = Number(m[3]);
+
+            const parsed = new Date(y, mo, d);
+
+            if (parsed.getFullYear() !== y || parsed.getMonth() !== mo || parsed.getDate() !== d) {
+
+                return fallbackDate;
+
+            }
+
+            return parsed;
+
+        };
+
+        const todayIso = toIsoDate(todayDate);
+
+        const selectedDateSource = settings.adminScheduleDate || settings.bossCycleStartDate || todayIso;
+
+        const safeSelectedDate = parseIsoDate(selectedDateSource, todayDate);
+
+        const safeSelectedIso = toIsoDate(safeSelectedDate);
+
+        const selectedDateLabel = safeSelectedDate.toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit', year: 'numeric' });
+
+        const daysDiff = Math.floor((safeSelectedDate - startDate) / (1000 * 60 * 60 * 24));
+
+        const startBossIndex = ((daysDiff % bossSequence.length) + bossSequence.length) % bossSequence.length;
+
+
+
+        const cycleSchedule = [
+
+            { h: 12, m: 0, name: bossSequence[(startBossIndex + 0) % bossSequence.length], type: 'boss', duration: 15 },
+
+            { h: 16, m: 0, name: bossSequence[(startBossIndex + 1) % bossSequence.length], type: 'boss', duration: 15 },
+
+            { h: 20, m: 0, name: bossSequence[(startBossIndex + 2) % bossSequence.length], type: 'boss', duration: 15 },
+
+            { h: 23, m: 0, name: bossSequence[(startBossIndex + 3) % bossSequence.length], type: 'boss', duration: 15 }
+
+        ];
+
+
+
+        const isParkDay = [0, 2, 4, 6].includes(safeSelectedDate.getDay());
+
+        const parkStatusLabel = isParkDay ? 'Dia com Poképark' : 'Dia sem Poképark';
+
+        const globalSchedule = cycleSchedule.map((item) => ({ ...item }));
+
+        if (isParkDay) {
+
+            globalSchedule.push(
+
+                { h: 11, m: 0, name: 'Poképark', type: 'park', duration: 30 },
+
+                { h: 15, m: 0, name: 'Poképark', type: 'park', duration: 30 },
+
+                { h: 21, m: 0, name: 'Poképark', type: 'park', duration: 30 }
+
+            );
+
+        }
+
+        globalSchedule.sort((a, b) => {
+
+            return (a.h * 60 + a.m) - (b.h * 60 + b.m);
+
+        });
+
+        const nowMinutes = now.getHours() * 60 + now.getMinutes();
+
+        const isSelectedToday = safeSelectedIso === todayIso;
+
+        const globalListHtml = globalSchedule.map((item) => {
+
+            const eventStartMinutes = item.h * 60 + item.m;
+
+            const eventEndMinutes = eventStartMinutes + (item.duration || 0);
+
+            const isActiveNow = isSelectedToday && nowMinutes >= eventStartMinutes && nowMinutes < eventEndMinutes;
+
+            const hh = String(item.h).padStart(2, '0');
+
+            const mm = String(item.m).padStart(2, '0');
+
+            const activeBadge = isActiveNow ? ' <span class="text-emerald-300 font-black">(AGORA)</span>' : '';
+
+            const rowClass = isActiveNow ? 'text-emerald-200 font-black' : 'text-slate-300';
+
+            const data = bossMeta[item.name] || { emoji: '⚔️', energy: '--' };
+
+            if (item.type === 'park') {
+
+                return `<li class="${rowClass}"><span class="text-amber-300">${hh}:${mm}</span> - 🎪️ Poképark <span class="text-cyan-400">(EVENTO)</span>${activeBadge}</li>`;
+
+            }
+
+            return `<li class="${rowClass}"><span class="text-amber-300">${hh}:${mm}</span> - ${data.emoji} ${item.name} <span class="text-slate-500">(${data.energy})</span>${activeBadge}</li>`;
+
+        }).join('');
 
 
 
@@ -11519,6 +11784,34 @@
 
 
 
+                        <div>
+
+
+
+                            <label class="text-[9px] font-black text-slate-400 uppercase">Data para Visualizar Agenda</label>
+
+
+
+                            <div class="flex gap-2">
+
+
+
+                                <input type="date" id="admin-schedule-date" value="${safeSelectedIso}" onchange="window.actions.updateAdminScheduleDate(this.value)" oninput="window.actions.updateAdminScheduleDate(this.value)" class="flex-1 bg-slate-900 border border-slate-700 rounded p-2 text-xs text-white">
+
+
+
+                                <button onclick="window.actions.resetAdminScheduleDate()" class="bg-slate-700 hover:bg-slate-600 text-white font-black px-3 text-xs rounded">Hoje</button>
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+
                         
 
 
@@ -11527,43 +11820,31 @@
 
 
 
-                            <p class="text-[9px] font-black text-slate-400 mb-2">🎮️ Bosses Disponíveis para Editar:</p>
+                            <p class="text-[9px] font-black text-slate-400 mb-2">🌐 Eventos Globais (${selectedDateLabel}):</p>
+
+                            <p class="text-[9px] text-slate-500 mb-2">${parkStatusLabel}</p>
 
 
 
-                            <ul class="text-[10px] text-slate-300 space-y-1">
+                            <ul class="text-[10px] text-slate-300 space-y-1">${globalListHtml}</ul>
 
 
 
-                                <li>🔴 Muchmoney (Red - 40 Energy)</li>
+                            <p class="text-[9px] text-slate-500 mt-2">Inclui ciclo de bosses e Poképark (11h, 15h e 21h em dom/ter/qui/sáb). Evento ativo aparece com selo AGORA.</p>
 
+                            <div class="mt-2 rounded border border-slate-700 bg-slate-950/60 p-2">
 
+                                <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">Legenda de Duração</p>
 
-                                <li>🔴 Hisuian Electrode (Red - 52 Energy)</li>
+                                <ul class="text-[10px] text-slate-300 space-y-1">
 
+                                    <li><span class="text-amber-300">Boss Global</span>: janela padrão de 15 min</li>
 
+                                    <li><span class="text-cyan-300">Poképark</span>: janela padrão de 30 min</li>
 
-                                <li>🔴 Mecha Iron-Masked Marauder (Red - 52 Energy)</li>
+                                </ul>
 
-
-
-                                <li>🔴 The Celestial Serpent (Red - 52 Energy)</li>
-
-
-
-                                <li>🔵 Mewtwo Strikes Back (Blue - 80 Energy)</li>
-
-
-
-                                <li>🔴 Below Zero (Red - 40 Energy)</li>
-
-
-
-                                <li>🔴 Dorabelle's Wrath (Red - 52 Energy)</li>
-
-
-
-                            </ul>
+                            </div>
 
 
 
@@ -11636,10 +11917,6 @@
 
 
         `;
-
-
-
-        const settings = getAdminSettings();
 
 
 
@@ -12136,16 +12413,62 @@
 
 
 
-        saveAdminSettings({ bossCycleStartDate: dateValue });
+        saveAdminSettings({ bossCycleStartDate: dateValue, adminScheduleDate: dateValue });
 
 
 
-        alert('Ciclo de bosses atualizado. A alteração será aplicada no próximo refresh da página.');
+        const container = document.getElementById('admin-container');
+
+        if (container && typeof renderAdminContent === 'function') {
+
+            renderAdminContent(container);
+
+        }
+
+        alert('Ciclo de bosses atualizado. A agenda foi recalculada nesta aba.');
 
 
 
     };
 
+
+
+
+    window.actions.updateAdminScheduleDate = (dateValue) => {
+
+        if (!dateValue) return;
+
+        saveAdminSettings({ adminScheduleDate: dateValue });
+
+        const container = document.getElementById('admin-container');
+
+        if (container && typeof renderAdminContent === 'function') {
+
+            renderAdminContent(container);
+
+        }
+
+    };
+
+
+
+    window.actions.resetAdminScheduleDate = () => {
+
+        const now = new Date();
+
+        const todayIso = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+        saveAdminSettings({ adminScheduleDate: todayIso });
+
+        const container = document.getElementById('admin-container');
+
+        if (container && typeof renderAdminContent === 'function') {
+
+            renderAdminContent(container);
+
+        }
+
+    };
 
 
 
@@ -12905,15 +13228,27 @@
 
 
 
-            const dlNWKeys = ['dl_bro6_nw', 'dl_falkner_nw', 'dl_yellow_nw', 'dl_jenny_nw', 'dl_raven_nw', 'dl_lance_nw', 'dl_bruno_nw', 'dl_blanca_nw', 'dl_sidis', 'dl_mite_nw'].filter(k => char.config?.enabledDailies[k]);
+            const showDailiesNW = char.config?.dailiesNW !== false;
 
 
 
-            const spNWKeys = ['sp_terror_nw', 'sp_misty_nw', 'sp_lorelei_nw', 'sp_barry_nw', 'sp_subj14'].filter(k => char.config?.enabledSpecials[k]);
+            const showSpecialsNW = char.config?.specialsNW !== false;
 
 
 
-            const mnNWKeys = ['m_clones_nw', 'm_secret_lab'].filter(k => char.config?.enabledMonthly[k]);
+            const showMonthlyNW = char.config?.monthlyNW !== false;
+
+
+
+            const dlNWKeys = showDailiesNW ? ['dl_bro6_nw', 'dl_falkner_nw', 'dl_yellow_nw', 'dl_jenny_nw', 'dl_raven_nw', 'dl_lance_nw', 'dl_bruno_nw', 'dl_blanca_nw', 'dl_sidis', 'dl_mite_nw'].filter(k => char.config?.enabledDailies[k]) : [];
+
+
+
+            const spNWKeys = showSpecialsNW ? ['sp_terror_nw', 'sp_misty_nw', 'sp_lorelei_nw', 'sp_barry_nw', 'sp_subj14'].filter(k => char.config?.enabledSpecials[k]) : [];
+
+
+
+            const mnNWKeys = showMonthlyNW ? ['m_clones_nw', 'm_secret_lab'].filter(k => char.config?.enabledMonthly[k]) : [];
 
 
 
@@ -12950,6 +13285,8 @@
 
 
             card.className = "bg-slate-900 border border-slate-800 rounded-[1.5rem] p-4 flex flex-col gap-3 task-card animate-fade shadow-xl";
+            card.style.borderColor = clan.glow || 'rgba(148, 163, 184, 0.55)';
+            card.style.boxShadow = `0 10px 28px rgba(2, 6, 23, 0.5), 0 0 0 1px ${clan.glow || 'rgba(148, 163, 184, 0.55)'}, 0 0 18px ${clan.glow || 'rgba(148, 163, 184, 0.45)'}, 0 0 34px ${clan.glow || 'rgba(148, 163, 184, 0.28)'}`;
 
 
 
@@ -12973,7 +13310,7 @@
 
 
 
-                            <h3 id="name-${char.id}" class="text-base font-black italic uppercase text-white leading-none">${char.name}</h3>
+                            <h3 id="name-${char.id}" class="text-[0.8rem] font-black italic uppercase text-white leading-none" style="text-shadow: 0 0 10px ${clan.glow || 'rgba(255,255,255,0.65)'}, 0 0 20px ${clan.glow || 'rgba(255,255,255,0.45)'}, 0 0 34px ${clan.glow || 'rgba(255,255,255,0.3)'};">${char.name}</h3>
 
 
 
@@ -12981,15 +13318,15 @@
 
 
 
-                                <span class="text-[8px] font-black px-1.5 py-0.5 rounded flex items-center gap-1 ${clan.color} bg-opacity-20 ${clan.text} ${clan.border} border border-opacity-30 shadow-sm" title="⚔️ Clã ${clan.name}">${clan.icon} ${clan.name}</span>
+                                <span class="text-[0.7rem] font-black px-1.5 py-0.5 rounded flex items-center gap-1 ${clan.color} bg-opacity-20 ${clan.text} ${clan.border} border border-opacity-30 shadow-sm" title="⚔️ Clã ${clan.name}">${clan.name}</span>
 
 
 
-                                <p class="text-[8px] font-bold ${getWorldColor(char.world).text} uppercase">${getWorldColor(char.world).icon} ${char.world} • <span class="font-black text-red-600">LV <span id="lvl-${char.id}">${char.level}</span></span></p>
+                                <p class="text-[0.7rem] font-bold ${getWorldColor(char.world).text} uppercase">${getWorldColor(char.world).icon} ${char.world} • <span class="font-black text-red-600">LV <span id="lvl-${char.id}">${char.level}</span></span></p>
 
 
 
-                                <button onclick="window.actions.levelUp('${char.id}', ${char.level}, event)" class="bg-blue-600/20 hover:bg-blue-500/40 text-blue-400 rounded px-1.5 py-0.5 text-[8px] font-black transition-all" title="Subir de Nível">⬆️</button>
+                                <button onclick="window.actions.levelUp('${char.id}', ${char.level}, event)" class="inline-flex items-center gap-1 rounded-md border border-cyan-400/40 bg-gradient-to-b from-cyan-500/20 to-blue-600/20 px-1.5 py-0.5 text-[8px] font-black uppercase tracking-wide text-cyan-200 shadow-[0_0_10px_rgba(34,211,238,0.15)] transition-all hover:from-cyan-400/35 hover:to-blue-500/35 hover:text-white hover:shadow-[0_0_16px_rgba(59,130,246,0.35)] active:scale-95 scale-90 origin-center" title="Subir de Nível"><svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg><span>LVL</span></button>
 
 
 
@@ -12997,11 +13334,11 @@
 
 
 
-                            <p class="text-[8px] font-bold ${getProfessionColor(char.profession).text}/80 uppercase mt-0.5">${char.profession || 'Sem Profissão'} (Lv ${char.profLevel || 0})${char.specialization ? ` • ${char.specialization}` : ''} <span class="text-purple-500">🔰 NW Lv ${char.nwLevel || 0}</span></p>
+                            <p class="text-[0.7rem] font-bold ${getProfessionColor(char.profession).text}/80 uppercase mt-0.5">${char.profession || 'Sem Profissão'} (Lv ${char.profLevel || 0})${char.specialization ? ` • ${char.specialization}` : ''} <span class="text-purple-500">🔰 NW Lv ${char.nwLevel || 0}</span></p>
 
 
 
-                            <p class="text-[8px] font-bold text-slate-400 uppercase mt-1">🎣️ <span class="text-cyan-300">Pesca</span>: <span class="text-cyan-200 text-[9px] font-black">${char.fishingLevel || 0}</span> • 🔴 <span class="text-emerald-300">Capturas</span>: <span class="text-emerald-200 text-[9px] font-black">${char.pokemonCaught || 0}</span></p>
+                            <p class="text-[0.7rem] font-bold text-slate-400 uppercase mt-1">🎣️ <span class="text-cyan-300">Pesca</span>: <span class="text-cyan-200 text-[0.7rem] font-black">${char.fishingLevel || 0}</span> • 🔴 <span class="text-emerald-300">Capturas</span>: <span class="text-emerald-200 text-[0.7rem] font-black">${char.pokemonCaught || 0}</span></p>
 
 
 
@@ -13071,7 +13408,7 @@
 
 
 
-                        <button onclick="window.actions.reset('${char.id}')" class="bg-slate-800 text-[8px] font-black uppercase px-4 py-2 rounded-lg border border-slate-700 hover:bg-slate-700 transition-all active:scale-95 shadow-lg shadow-black/20">${tStrings.reset}</button>
+                        <button onclick="window.actions.reset('${char.id}')" class="bg-slate-800 text-[0.7rem] font-black uppercase px-4 py-2 rounded-lg border border-slate-700 hover:bg-slate-700 transition-all active:scale-95 shadow-lg shadow-black/20">${tStrings.reset}</button>
 
 
 
@@ -13095,11 +13432,11 @@
 
 
 
-                                <span class="text-[8px] font-black text-slate-500 uppercase tracking-widest italic">${tStrings.finCurrent}</span>
+                                <span class="text-[10px] font-black text-slate-500 uppercase tracking-widest italic">${tStrings.finCurrent}</span>
 
 
 
-                                <span class="text-sm font-black ${(char.finance?.currentCash ?? 0) >= 0 ? 'text-emerald-400' : 'text-red-400'}">${formatK(char.finance?.currentCash || 0)}</span>
+                                <span class="text-[10px] font-black ${(char.finance?.currentCash ?? 0) >= 0 ? 'text-emerald-400' : 'text-red-400'}">${formatK(char.finance?.currentCash || 0)}</span>
 
 
 
@@ -13139,15 +13476,15 @@
 
 
 
-                            <div class="flex flex-col"><span class="text-[7px] text-slate-500 uppercase font-bold tracking-widest">${tStrings.finToday}</span><span class="text-[11px] font-black tracking-tight">${formatK(finStats.d)}</span></div>
+                            <div class="flex flex-col"><span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">${tStrings.finToday}</span><span class="text-[10px] font-black tracking-tight">${formatK(finStats.d)}</span></div>
 
 
 
-                            <div class="flex flex-col"><span class="text-[7px] text-slate-500 uppercase font-bold tracking-widest">${tStrings.finWeek}</span><span class="text-[11px] font-black tracking-tight">${formatK(finStats.w)}</span></div>
+                            <div class="flex flex-col"><span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">${tStrings.finWeek}</span><span class="text-[10px] font-black tracking-tight">${formatK(finStats.w)}</span></div>
 
 
 
-                            <div class="flex flex-col"><span class="text-[7px] text-slate-500 uppercase font-bold tracking-widest">${tStrings.finMonth}</span><span class="text-[11px] font-black tracking-tight">${formatK(finStats.m)}</span></div>
+                            <div class="flex flex-col"><span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">${tStrings.finMonth}</span><span class="text-[10px] font-black tracking-tight">${formatK(finStats.m)}</span></div>
 
 
 
@@ -13171,19 +13508,19 @@
 
 
 
-                            ${char.config?.events && evKeys.length ? `<div><h4 class="text-[8px] font-black text-orange-400 uppercase italic mb-2">${tStrings.events}</h4>${renderList(char, 'events', evKeys)}</div>` : ''}
+                            ${char.config?.events && evKeys.length ? `<div><h4 class="text-[10px] font-black text-orange-400 uppercase italic mb-2">${tStrings.events}</h4>${renderList(char, 'events', evKeys)}</div>` : ''}
 
 
 
-                            ${char.config?.dungeons && dgKeys.length ? `<div><h4 class="text-[8px] font-black text-red-500 uppercase italic mb-2">${tStrings.dungeons}</h4>${renderList(char, 'dailies', dgKeys)}</div>` : ''}
+                            ${char.config?.dungeons && dgKeys.length ? `<div><h4 class="text-[10px] font-black text-red-500 uppercase italic mb-2">${tStrings.dungeons}</h4>${renderList(char, 'dailies', dgKeys)}</div>` : ''}
 
 
 
-                            ${char.config?.dailies && dlKeys.length ? `<div><h4 class="text-[8px] font-black text-blue-500 uppercase italic mb-2">${tStrings.dailies}</h4>${renderList(char, 'dailies', dlKeys)}</div>` : ''}
+                            ${char.config?.dailies && dlKeys.length ? `<div><h4 class="text-[10px] font-black text-blue-500 uppercase italic mb-2">${tStrings.dailies}</h4>${renderList(char, 'dailies', dlKeys)}</div>` : ''}
 
 
 
-                            ${char.config?.monthly && mKeys.length ? `<div><h4 class="text-[8px] font-black text-emerald-500 uppercase italic mb-2">${tStrings.clones}</h4>${renderList(char, 'monthly', mKeys)}</div>` : ''}
+                            ${char.config?.monthly && mKeys.length ? `<div><h4 class="text-[10px] font-black text-emerald-500 uppercase italic mb-2">${tStrings.clones}</h4>${renderList(char, 'monthly', mKeys)}</div>` : ''}
 
 
 
@@ -13195,11 +13532,11 @@
 
 
 
-                            ${char.config?.johto ? `<div><h4 class="text-[8px] font-black text-indigo-500 uppercase italic mb-2">${tStrings.johto}</h4>${renderList(char, 'johtoWeekly', [...gymKeys, 'silver'])}</div>` : ''}
+                            ${char.config?.johto ? `<div><h4 class="text-[10px] font-black text-indigo-500 uppercase italic mb-2">${tStrings.johto}</h4>${renderList(char, 'johtoWeekly', [...gymKeys, 'silver'])}</div>` : ''}
 
 
 
-                            ${char.config?.specials && spKeys.length ? `<div><h4 class="text-[8px] font-black text-amber-500 uppercase italic mb-2">${tStrings.specials}</h4>${renderList(char, 'specials', spKeys)}</div>` : ''}
+                            ${char.config?.specials && spKeys.length ? `<div><h4 class="text-[10px] font-black text-amber-500 uppercase italic mb-2">${tStrings.specials}</h4>${renderList(char, 'specials', spKeys)}</div>` : ''}
 
 
 
@@ -13223,11 +13560,11 @@
 
 
 
-                        <h4 class="text-[9px] font-black text-purple-400 uppercase italic mb-3 tracking-widest flex items-center gap-2">
+                        <h4 class="text-[10px] font-black text-purple-400 uppercase italic mb-3 tracking-widest flex items-center gap-2">
 
 
 
-                            <span class="bg-purple-900/80 px-1.5 py-0.5 rounded border border-purple-500/50 text-[6px] text-white">NW</span> End-Game / Nightmare
+                            <span class="bg-purple-900/80 px-1.5 py-0.5 rounded border border-purple-500/50 text-[8px] text-white">NW</span> End-Game / Nightmare
 
 
 
@@ -13243,11 +13580,11 @@
 
 
 
-                                ${dlNWKeys.length ? `<div><h5 class="text-[7px] text-slate-500 uppercase font-bold mb-1">Diárias</h5>${renderList(char, 'dailies', dlNWKeys)}</div>` : ''}
+                                ${dlNWKeys.length ? `<div><h5 class="text-[10px] text-slate-500 uppercase font-bold mb-1">Diárias</h5>${renderList(char, 'dailies', dlNWKeys)}</div>` : ''}
 
 
 
-                                ${mnNWKeys.length ? `<div><h5 class="text-[7px] text-slate-500 uppercase font-bold mb-1">Mensais</h5>${renderList(char, 'monthly', mnNWKeys)}</div>` : ''}
+                                ${mnNWKeys.length ? `<div><h5 class="text-[10px] text-slate-500 uppercase font-bold mb-1">Mensais</h5>${renderList(char, 'monthly', mnNWKeys)}</div>` : ''}
 
 
 
@@ -13259,7 +13596,7 @@
 
 
 
-                                ${spNWKeys.length ? `<div><h5 class="text-[7px] text-slate-500 uppercase font-bold mb-1">Semanais</h5>${renderList(char, 'specials', spNWKeys)}</div>` : ''}
+                                ${spNWKeys.length ? `<div><h5 class="text-[10px] text-slate-500 uppercase font-bold mb-1">Semanais</h5>${renderList(char, 'specials', spNWKeys)}</div>` : ''}
 
 
 
@@ -13339,7 +13676,7 @@
 
 
 
-                const nwBadge = isNW ? `<span class="ml-1.5 inline-flex items-center justify-center bg-purple-900/80 text-purple-300 border border-purple-500/50 text-[6px] px-1 rounded-sm shadow-sm font-black uppercase tracking-widest" title="End-Game">NW</span>` : '';
+                const nwBadge = isNW ? `<span class="ml-1.5 inline-flex items-center justify-center bg-purple-900/80 text-purple-300 border border-purple-500/50 text-[8px] px-1 rounded-sm shadow-sm font-black uppercase tracking-widest" title="End-Game">NW</span>` : '';
 
 
 
@@ -13355,7 +13692,7 @@
 
 
 
-                    <span class="text-[9px] font-black uppercase tracking-wide flex items-center ${task.done ? 'text-slate-500 line-through' : 'text-slate-200'}">${taskName}${nwBadge}</span>
+                    <span class="text-[10px] font-black uppercase tracking-wide flex items-center ${task.done ? 'text-slate-500 line-through' : 'text-slate-200'}">${taskName}${nwBadge}</span>
 
 
 
@@ -13367,11 +13704,11 @@
 
 
 
-                            <span class="text-[7.5px] font-bold text-emerald-500/90 uppercase tracking-widest">? ${t.doneAt}: ${formatDateTime(task.at)}</span>
+                            <span class="text-[9px] font-bold text-emerald-500/90 uppercase tracking-widest">✓ ${t.doneAt}: ${formatDateTime(task.at)}</span>
 
 
 
-                            <span class="text-[7.5px] font-bold text-blue-400/90 uppercase tracking-widest">⏰️ ${t.resetAt}: ${getNextAvailableText(cat, task.at)}</span>
+                            <span class="text-[9px] font-bold text-blue-400/90 uppercase tracking-widest">⏰️ ${t.resetAt}: ${getNextAvailableText(cat, task.at)}</span>
 
 
 
@@ -13556,6 +13893,10 @@
 
 
         updateBossCycle: window.actions?.updateBossCycle,
+
+        updateAdminScheduleDate: window.actions?.updateAdminScheduleDate,
+
+        resetAdminScheduleDate: window.actions?.resetAdminScheduleDate,
 
 
 
@@ -14858,7 +15199,7 @@
 
 
 
-            defIcon.className = `${defClan.color} clan-badge-small text-[10px]`; defIcon.innerText = defClan.icon;
+            defIcon.className = `${defClan.color} clan-badge-small`; defIcon.innerHTML = defClan.icon;
 
 
 
@@ -14934,7 +15275,7 @@
 
 
 
-                    iconEl.className = `${cData.color} clan-badge-small text-[10px]`; iconEl.innerText = cData.icon;
+                    iconEl.className = `${cData.color} clan-badge-small`; iconEl.innerHTML = cData.icon;
 
 
 
@@ -14951,6 +15292,86 @@
 
 
                         if(char.config.dungeons !== undefined) form.elements['monitor_dungeons'].checked = char.config.dungeons;
+                        if(char.config.dailies !== undefined) form.elements['monitor_dailies'].checked = char.config.dailies;
+                        if(char.config.johto !== undefined) form.elements['monitor_johto'].checked = char.config.johto;
+                        if(char.config.specials !== undefined) form.elements['monitor_specials'].checked = char.config.specials;
+                        if(char.config.monthly !== undefined) form.elements['monitor_monthly'].checked = char.config.monthly;
+
+                        const dailiesNWFallback = ['dl_bro6_nw', 'dl_falkner_nw', 'dl_yellow_nw', 'dl_jenny_nw', 'dl_raven_nw', 'dl_lance_nw', 'dl_bruno_nw', 'dl_blanca_nw', 'dl_sidis', 'dl_mite_nw'].some(k => char.config?.enabledDailies?.[k]);
+                        const specialsNWFallback = ['sp_terror_nw', 'sp_misty_nw', 'sp_lorelei_nw', 'sp_barry_nw', 'sp_subj14'].some(k => char.config?.enabledSpecials?.[k]);
+                        const monthlyNWFallback = ['m_clones_nw', 'm_secret_lab'].some(k => char.config?.enabledMonthly?.[k]);
+
+                        if (form.elements['monitor_dailies_nw']) form.elements['monitor_dailies_nw'].checked = char.config.dailiesNW !== undefined ? char.config.dailiesNW : dailiesNWFallback;
+                        if (form.elements['monitor_specials_nw']) form.elements['monitor_specials_nw'].checked = char.config.specialsNW !== undefined ? char.config.specialsNW : specialsNWFallback;
+                        if (form.elements['monitor_monthly_nw']) form.elements['monitor_monthly_nw'].checked = char.config.monthlyNW !== undefined ? char.config.monthlyNW : monthlyNWFallback;
+
+                        const applyChecks = (source, map) => {
+                            if (!source) return;
+                            Object.entries(map).forEach(([field, key]) => {
+                                if (form.elements[field] && source[key] !== undefined) {
+                                    form.elements[field].checked = !!source[key];
+                                }
+                            });
+                        };
+
+                        applyChecks(char.config.enabledEvents, {
+                            ev_boss: 'boss',
+                            ev_park: 'park'
+                        });
+
+                        applyChecks(char.config.enabledDungeons, {
+                            dg_blue: 'blue',
+                            dg_red: 'red'
+                        });
+
+                        applyChecks(char.config.enabledDailies, {
+                            dl_catch1: 'catch1',
+                            dl_catch2: 'catch2',
+                            dl_task: 'task',
+                            dl_bro12: 'dl_bro12',
+                            dl_bro6_nw: 'dl_bro6_nw',
+                            dl_falkner_nw: 'dl_falkner_nw',
+                            dl_yellow_nw: 'dl_yellow_nw',
+                            dl_jenny_nw: 'dl_jenny_nw',
+                            dl_raven_nw: 'dl_raven_nw',
+                            dl_lance_nw: 'dl_lance_nw',
+                            dl_bruno_nw: 'dl_bruno_nw',
+                            dl_blanca_nw: 'dl_blanca_nw',
+                            dl_sidis: 'dl_sidis',
+                            dl_mite_nw: 'dl_mite_nw'
+                        });
+
+                        applyChecks(char.config.enabledGyms, {
+                            gym_violet: 'violet',
+                            gym_azalea: 'azalea',
+                            gym_goldenrod: 'goldenrod',
+                            gym_ecruteak: 'ecruteak',
+                            gym_cianwood: 'cianwood',
+                            gym_olivine: 'olivine',
+                            gym_mahogany: 'mahogany',
+                            gym_blackthorn: 'blackthorn'
+                        });
+
+                        applyChecks(char.config.enabledSpecials, {
+                            sp_dog: 'dog',
+                            sp_ghost: 'ghost',
+                            sp_dz_christmas: 'dzChristmas',
+                            sp_tower: 'sp_tower',
+                            sp_eleanor: 'sp_eleanor',
+                            sp_fawkes: 'sp_fawkes',
+                            sp_factory: 'sp_factory',
+                            sp_terror_nw: 'sp_terror_nw',
+                            sp_misty_nw: 'sp_misty_nw',
+                            sp_lorelei_nw: 'sp_lorelei_nw',
+                            sp_subj14: 'sp_subj14',
+                            sp_barry_nw: 'sp_barry_nw'
+                        });
+
+                        applyChecks(char.config.enabledMonthly, {
+                            m_clones: 'clones',
+                            m_secret_lab: 'm_secret_lab',
+                            m_clones_nw: 'm_clones_nw'
+                        });
 
 
 
@@ -14965,6 +15386,21 @@
             }
 
 
+
+            [
+                ['monitor_events', 'event-choices'],
+                ['monitor_dungeons', 'dungeon-choices'],
+                ['monitor_dailies', 'daily-choices'],
+                ['monitor_johto', 'gym-choices'],
+                ['monitor_specials', 'weekly-extra-choices'],
+                ['monitor_monthly', 'monthly-choices'],
+                ['monitor_dailies_nw', 'daily-nw-choices'],
+                ['monitor_specials_nw', 'weekly-nw-choices'],
+                ['monitor_monthly_nw', 'monthly-nw-choices']
+            ].forEach(([name, id]) => {
+                const cb = form.elements[name];
+                if (cb) window.ui.toggleSubGrid(cb, id);
+            });
 
             document.getElementById('modal-overlay').style.display = 'flex'; 
 
@@ -15150,7 +15586,24 @@
 
 
 
-        toggleSubGrid: (cb, id) => { const el = document.getElementById(id); cb.checked ? el.classList.remove('opacity-30') : el.classList.add('opacity-30'); },
+        toggleSubGrid: (cb, id) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const subChecks = el.querySelectorAll('input[type="checkbox"]');
+
+            if (cb.checked) {
+                el.classList.remove('opacity-30');
+                subChecks.forEach((input) => {
+                    input.disabled = false;
+                });
+            } else {
+                el.classList.add('opacity-30');
+                subChecks.forEach((input) => {
+                    input.checked = false;
+                    input.disabled = true;
+                });
+            }
+        },
 
 
 
@@ -15238,7 +15691,7 @@
 
 
 
-                    iconEl.className = `${data.color} clan-badge-small text-[10px]`; iconEl.innerText = data.icon;
+                    iconEl.className = `${data.color} clan-badge-small`; iconEl.innerHTML = data.icon;
 
 
 
@@ -15250,7 +15703,7 @@
 
 
 
-                opt.innerHTML = `<span class="w-5 h-5 rounded flex items-center justify-center text-[10px] ${data.color}">${data.icon}</span><span class="text-[9px] uppercase font-black">${data.name}</span>`;
+                opt.innerHTML = `<span class="clan-option-icon ${data.color}">${data.icon}</span><span class="text-[9px] uppercase font-black">${data.name}</span>`;
 
 
 
@@ -15259,8 +15712,6 @@
 
 
             });
-
-
 
         },
 
@@ -15287,6 +15738,10 @@
 
 
                 guides: document.getElementById('view-guides'),
+
+
+
+                cycle: document.getElementById('view-cycle'),
 
 
 
@@ -15327,6 +15782,10 @@
 
 
                 guides: 'Guias F2P',
+
+
+
+                cycle: 'Ciclo de Bosses & Eventos',
 
 
 
@@ -15421,6 +15880,68 @@
             });
 
 
+
+            if (tabName === 'cycle') {
+
+
+
+                const container = document.getElementById('visitor-cycle-container');
+
+
+
+                if (container && typeof renderVisitorCyclePanel === 'function') {
+
+
+
+                    renderVisitorCyclePanel(container);
+
+
+
+                }
+
+
+
+            }
+
+
+
+        },
+
+
+
+        updateVisitorScheduleDate: (dateValue) => {
+
+            if (!dateValue) return;
+
+            saveAdminSettings({ visitorScheduleDate: dateValue });
+
+            const container = document.getElementById('visitor-cycle-container');
+
+            if (container && typeof renderVisitorCyclePanel === 'function') {
+
+                renderVisitorCyclePanel(container);
+
+            }
+
+        },
+
+
+
+        resetVisitorScheduleDate: () => {
+
+            const now = new Date();
+
+            const todayIso = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+            saveAdminSettings({ visitorScheduleDate: todayIso });
+
+            const container = document.getElementById('visitor-cycle-container');
+
+            if (container && typeof renderVisitorCyclePanel === 'function') {
+
+                renderVisitorCyclePanel(container);
+
+            }
 
         },
 
@@ -15630,19 +16151,11 @@
 
 
 
-                
-
-
-
                 const container = document.getElementById('admin-container');
 
 
 
                 console.log('~~ Container:', container);
-
-
-
-                
 
 
 
@@ -15744,10 +16257,6 @@
 
 
 
-
-
-
-
     const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
 
 
@@ -15756,19 +16265,11 @@
 
 
 
-
-
-
-
     const financeForm = document.getElementById('finance-form');
 
 
 
     if(financeForm) financeForm.onsubmit = window.actions.submitFinance;
-
-
-
-
 
 
 
@@ -15805,10 +16306,6 @@
 
 
     }
-
-
-
-
 
 
 
@@ -15860,14 +16357,6 @@
 
 
 
-            
-
-
-
-            // Garantia de Segurança: Tenta autenticar anonimamente caso o navegador tenha bloqueado a sessão inicial
-
-
-
             if (!auth.currentUser) {
 
 
@@ -15897,10 +16386,6 @@
 
 
             }
-
-
-
-
 
 
 
@@ -15984,39 +16469,53 @@
 
 
 
+            const eventsEnabled = fd.get('monitor_events') === 'on';
+            const dungeonsEnabled = fd.get('monitor_dungeons') === 'on';
+            const dailiesEnabled = fd.get('monitor_dailies') === 'on';
+            const johtoEnabled = fd.get('monitor_johto') === 'on';
+            const specialsEnabled = fd.get('monitor_specials') === 'on';
+            const monthlyEnabled = fd.get('monitor_monthly') === 'on';
+            const questsEnabled = fd.get('monitor_quests') === 'on';
+
+            const dailiesNWEnabled = fd.get('monitor_dailies_nw') === 'on';
+            const specialsNWEnabled = fd.get('monitor_specials_nw') === 'on';
+            const monthlyNWEnabled = fd.get('monitor_monthly_nw') === 'on';
+
             const config = { 
 
 
 
-                events: fd.get('monitor_events')==='on', dungeons: fd.get('monitor_dungeons')==='on', dailies: fd.get('monitor_dailies')==='on', johto: fd.get('monitor_johto')==='on', monthly: fd.get('monitor_monthly')==='on', specials: fd.get('monitor_specials')==='on', quests: fd.get('monitor_quests')==='on',
+                events: eventsEnabled, dungeons: dungeonsEnabled, dailies: dailiesEnabled, johto: johtoEnabled, monthly: monthlyEnabled, specials: specialsEnabled, quests: questsEnabled,
+
+                dailiesNW: dailiesNWEnabled, specialsNW: specialsNWEnabled, monthlyNW: monthlyNWEnabled,
 
 
 
-                enabledEvents: { boss: fd.get('ev_boss')==='on', park: fd.get('ev_park')==='on' },
+                enabledEvents: { boss: eventsEnabled && fd.get('ev_boss')==='on', park: eventsEnabled && fd.get('ev_park')==='on' },
 
 
 
-                enabledDungeons: { blue: fd.get('dg_blue')==='on', red: fd.get('dg_red')==='on' },
+                enabledDungeons: { blue: dungeonsEnabled && fd.get('dg_blue')==='on', red: dungeonsEnabled && fd.get('dg_red')==='on' },
 
 
 
-                enabledDailies: { catch1: fd.get('dl_catch1')==='on', catch2: fd.get('dl_catch2')==='on', task: fd.get('dl_task')==='on', dl_bro12: fd.get('dl_bro12')==='on', dl_bro6_nw: fd.get('dl_bro6_nw')==='on', dl_falkner_nw: fd.get('dl_falkner_nw')==='on', dl_yellow_nw: fd.get('dl_yellow_nw')==='on', dl_jenny_nw: fd.get('dl_jenny_nw')==='on', dl_raven_nw: fd.get('dl_raven_nw')==='on', dl_lance_nw: fd.get('dl_lance_nw')==='on', dl_bruno_nw: fd.get('dl_bruno_nw')==='on', dl_blanca_nw: fd.get('dl_blanca_nw')==='on', dl_sidis: fd.get('dl_sidis')==='on', dl_mite_nw: fd.get('dl_mite_nw')==='on' },
+                enabledDailies: { catch1: dailiesEnabled && fd.get('dl_catch1')==='on', catch2: dailiesEnabled && fd.get('dl_catch2')==='on', task: dailiesEnabled && fd.get('dl_task')==='on', dl_bro12: dailiesEnabled && fd.get('dl_bro12')==='on', dl_bro6_nw: dailiesNWEnabled && fd.get('dl_bro6_nw')==='on', dl_falkner_nw: dailiesNWEnabled && fd.get('dl_falkner_nw')==='on', dl_yellow_nw: dailiesNWEnabled && fd.get('dl_yellow_nw')==='on', dl_jenny_nw: dailiesNWEnabled && fd.get('dl_jenny_nw')==='on', dl_raven_nw: dailiesNWEnabled && fd.get('dl_raven_nw')==='on', dl_lance_nw: dailiesNWEnabled && fd.get('dl_lance_nw')==='on', dl_bruno_nw: dailiesNWEnabled && fd.get('dl_bruno_nw')==='on', dl_blanca_nw: dailiesNWEnabled && fd.get('dl_blanca_nw')==='on', dl_sidis: dailiesNWEnabled && fd.get('dl_sidis')==='on', dl_mite_nw: dailiesNWEnabled && fd.get('dl_mite_nw')==='on' },
 
 
 
-                enabledGyms: { violet: fd.get('gym_violet')==='on', azalea: fd.get('gym_azalea')==='on', goldenrod: fd.get('gym_goldenrod')==='on', ecruteak: fd.get('gym_ecruteak')==='on', cianwood: fd.get('gym_cianwood')==='on', olivine: fd.get('gym_olivine')==='on', mahogany: fd.get('gym_mahogany')==='on', blackthorn: fd.get('gym_blackthorn')==='on' },
+                enabledGyms: { violet: johtoEnabled && fd.get('gym_violet')==='on', azalea: johtoEnabled && fd.get('gym_azalea')==='on', goldenrod: johtoEnabled && fd.get('gym_goldenrod')==='on', ecruteak: johtoEnabled && fd.get('gym_ecruteak')==='on', cianwood: johtoEnabled && fd.get('gym_cianwood')==='on', olivine: johtoEnabled && fd.get('gym_olivine')==='on', mahogany: johtoEnabled && fd.get('gym_mahogany')==='on', blackthorn: johtoEnabled && fd.get('gym_blackthorn')==='on' },
 
 
 
-                enabledSpecials: { dog: fd.get('sp_dog')==='on', ghost: fd.get('sp_ghost')==='on', dzChristmas: fd.get('sp_dz_christmas')==='on', sp_tower: fd.get('sp_tower')==='on', sp_terror_nw: fd.get('sp_terror_nw')==='on', sp_eleanor: fd.get('sp_eleanor')==='on', sp_fawkes: fd.get('sp_fawkes')==='on', sp_factory: fd.get('sp_factory')==='on', sp_misty_nw: fd.get('sp_misty_nw')==='on', sp_lorelei_nw: fd.get('sp_lorelei_nw')==='on', sp_subj14: fd.get('sp_subj14')==='on', sp_barry_nw: fd.get('sp_barry_nw')==='on' },
+                enabledSpecials: { dog: specialsEnabled && fd.get('sp_dog')==='on', ghost: specialsEnabled && fd.get('sp_ghost')==='on', dzChristmas: specialsEnabled && fd.get('sp_dz_christmas')==='on', sp_tower: specialsEnabled && fd.get('sp_tower')==='on', sp_terror_nw: specialsNWEnabled && fd.get('sp_terror_nw')==='on', sp_eleanor: specialsEnabled && fd.get('sp_eleanor')==='on', sp_fawkes: specialsEnabled && fd.get('sp_fawkes')==='on', sp_factory: specialsEnabled && fd.get('sp_factory')==='on', sp_misty_nw: specialsNWEnabled && fd.get('sp_misty_nw')==='on', sp_lorelei_nw: specialsNWEnabled && fd.get('sp_lorelei_nw')==='on', sp_subj14: specialsNWEnabled && fd.get('sp_subj14')==='on', sp_barry_nw: specialsNWEnabled && fd.get('sp_barry_nw')==='on' },
 
 
 
-                enabledMonthly: { clones: fd.get('m_clones')==='on', m_secret_lab: fd.get('m_secret_lab')==='on', m_clones_nw: fd.get('m_clones_nw')==='on' },
+                enabledMonthly: { clones: monthlyEnabled && fd.get('m_clones')==='on', m_secret_lab: monthlyNWEnabled && fd.get('m_secret_lab')==='on', m_clones_nw: monthlyNWEnabled && fd.get('m_clones_nw')==='on' },
 
 
 
-                enabledQuests: { qCyber: fd.get('q_cyber')==='on', qMewtwo: fd.get('q_mewtwo')==='on', qTimeTravel: fd.get('q_time_travel')==='on', qTrevo: fd.get('q_trevo')==='on', qOrbs: fd.get('q_orbs')==='on', qSarkies: fd.get('q_sarkies')==='on', qTransporteNW: fd.get('q_transporte_nw')==='on', qKoga: fd.get('q_koga')==='on', qLabNW: fd.get('q_lab_nw')==='on' }
+                enabledQuests: { qCyber: questsEnabled && fd.get('q_cyber')==='on', qMewtwo: questsEnabled && fd.get('q_mewtwo')==='on', qTimeTravel: questsEnabled && fd.get('q_time_travel')==='on', qTrevo: questsEnabled && fd.get('q_trevo')==='on', qOrbs: questsEnabled && fd.get('q_orbs')==='on', qSarkies: questsEnabled && fd.get('q_sarkies')==='on', qTransporteNW: questsEnabled && fd.get('q_transporte_nw')==='on', qKoga: questsEnabled && fd.get('q_koga')==='on', qLabNW: questsEnabled && fd.get('q_lab_nw')==='on' }
 
 
 
