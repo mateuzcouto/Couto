@@ -39,203 +39,223 @@
     <style>
 
         :root {
-            --theme-navy: #071120;
-            --theme-navy-mid: #0f1d36;
-            --theme-navy-soft: #1d3156;
-            --theme-red: #d62839;
-            --theme-red-deep: #9f1239;
-            --theme-white: #fffaf7;
-            --theme-ink: #0b1020;
-            --theme-shadow: rgba(6, 11, 23, 0.32);
+            --page-bg-1: #020617;
+            --page-bg-2: #0b1736;
+            --page-bg-3: #1e293b;
+            --page-glow-a: rgba(37, 99, 235, 0.28);
+            --page-glow-b: rgba(59, 130, 246, 0.2);
+        }
+
+        html, body {
+            min-height: 100%;
+            background-color: var(--page-bg-1);
         }
 
         body {
-            background:
-                radial-gradient(circle at top, rgba(84, 119, 255, 0.16) 0%, rgba(84, 119, 255, 0.04) 18%, transparent 38%),
-                linear-gradient(180deg, #132544 0%, var(--theme-navy-mid) 32%, var(--theme-navy) 100%);
-            color: #ffffff;
-        }
-
-        #app {
-            background:
-                radial-gradient(circle at center, rgba(107, 149, 255, 0.08) 0%, transparent 44%),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(2, 6, 23, 0.18) 100%);
+            color: #e2e8f0;
+            background-image:
+                radial-gradient(1200px 650px at 10% -10%, var(--page-glow-a) 0%, transparent 60%),
+                radial-gradient(900px 500px at 95% 20%, var(--page-glow-b) 0%, transparent 58%),
+                linear-gradient(180deg, var(--page-bg-2) 0%, var(--page-bg-1) 45%, var(--page-bg-3) 100%);
+            background-attachment: fixed;
         }
 
         .pokeball-nav {
-            background: linear-gradient(135deg, #050b16 0%, #081224 44%, #0b1730 100%);
-            border-bottom: 1px solid rgba(125, 211, 252, 0.14);
-            box-shadow: 0 14px 38px var(--theme-shadow);
-            position: sticky;
-            overflow: visible;
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0.96) 0%, rgba(3, 10, 32, 0.96) 100%);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.35);
+            box-shadow: 0 8px 24px rgba(2, 6, 23, 0.75);
         }
 
         .pokeball-nav::after {
             content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -10px;
-            height: 10px;
-            background: linear-gradient(90deg, rgba(37, 99, 235, 0.72) 0%, rgba(96, 165, 250, 0.88) 50%, rgba(37, 99, 235, 0.72) 100%);
-            box-shadow: 0 8px 18px rgba(59, 130, 246, 0.18);
+            display: block;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(96, 165, 250, 0.95) 45%, rgba(59, 130, 246, 0.15) 100%);
         }
 
         .pokeball-brand-badge {
-            background: linear-gradient(180deg, rgba(255, 30, 86, 0.98) 0%, rgba(225, 8, 78, 0.98) 100%);
-            color: #ffffff;
-            border: 2px solid rgba(255, 173, 201, 0.55);
-            border-radius: 999px;
-            box-shadow: 0 10px 24px rgba(225, 8, 78, 0.38), 0 0 18px rgba(255, 30, 86, 0.36);
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            border-radius: 9999px;
+            background: linear-gradient(180deg, #a21caf 0%, #7e22ce 36%, #5b21b6 49%, #f8fafc 49%, #e2e8f0 100%);
+            border: 2px solid #111827;
+            color: #ef4444;
+            font-size: 15px;
+            letter-spacing: -0.02em;
+            font-weight: 900;
+            text-shadow:
+                0 0 1px #020617,
+                0 1px 0 #020617,
+                -1px 0 0 #020617,
+                1px 0 0 #020617,
+                0 0 8px rgba(2, 6, 23, 0.95),
+                0 0 16px rgba(2, 6, 23, 0.85);
+            box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.22), 0 0 20px rgba(147, 51, 234, 0.45);
+            transform: translateZ(0);
+            z-index: 0;
         }
 
-        .pokeball-top-pill {
-            background: rgba(7, 17, 32, 0.28) !important;
-            color: #f8fafc !important;
-            border: 1px solid rgba(255, 255, 255, 0.16) !important;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(8px);
+        .pokeball-brand-badge::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.55) 0 16%, transparent 18%),
+                radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.5) 0 13%, transparent 15%),
+                linear-gradient(180deg, transparent 0%, transparent 45%, #111827 45%, #111827 56%, transparent 56%, transparent 100%);
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .pokeball-menu-button {
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(7, 17, 32, 0.92) 100%) !important;
-            color: #fff !important;
-            border: 1px solid rgba(96, 165, 250, 0.22) !important;
-            box-shadow: 0 10px 22px rgba(2, 6, 23, 0.32);
-            backdrop-filter: blur(8px);
-        }
-
-        .pokeball-menu-button:hover {
-            filter: brightness(1.04);
-        }
-
-        .pokeball-dropdown {
-            background: rgba(10, 17, 31, 0.96) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            box-shadow: 0 18px 38px rgba(2, 6, 23, 0.42) !important;
-            backdrop-filter: blur(14px);
-        }
-
-        .pokeball-dropdown button:hover {
-            background: rgba(214, 40, 57, 0.14) !important;
-        }
-
-        .pokeball-dropdown span,
-        .pokeball-dropdown .text-slate-500,
-        .pokeball-dropdown .text-slate-400,
-        .pokeball-dropdown .text-white,
-        .pokeball-dropdown .text-slate-300 {
-            color: #f8fafc !important;
+        .pokeball-brand-badge::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, 12%);
+            border-radius: 9999px;
+            border: 3px solid #111827;
+            background: radial-gradient(circle at 35% 30%, #ffffff 0%, #dbeafe 100%);
+            box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .pokeball-hero-title {
-            color: #fffaf7;
-            text-shadow: 0 8px 24px rgba(91, 11, 31, 0.2);
+            letter-spacing: -0.03em;
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
         }
 
-        .pokeball-hero-title .accent-red {
-            color: #ff1e56;
-            text-shadow: 0 0 6px rgba(255, 30, 86, 0.92), 0 0 14px rgba(255, 30, 86, 0.78), 0 0 24px rgba(255, 30, 86, 0.56);
+        .accent-red {
+            color: #ff2d7a;
+            text-shadow: 0 0 6px rgba(255, 45, 122, 0.8), 0 0 14px rgba(255, 45, 122, 0.55);
         }
 
-        .pokeball-hero-title .accent-white {
+        .accent-white {
             color: #67e8f9;
-            text-shadow: 0 0 6px rgba(103, 232, 249, 0.9), 0 0 14px rgba(56, 189, 248, 0.7), 0 0 24px rgba(14, 165, 233, 0.45);
+            text-shadow: 0 0 6px rgba(103, 232, 249, 0.85), 0 0 16px rgba(34, 211, 238, 0.6);
         }
 
-        .pokeball-announcement {
-            border-color: rgba(96, 165, 250, 0.28) !important;
-            background: linear-gradient(135deg, rgba(11, 16, 32, 0.68) 0%, rgba(29, 49, 86, 0.44) 100%) !important;
-            box-shadow: 0 12px 28px rgba(2, 6, 23, 0.22);
+        .pokeball-top-pill {
+            color: #f8fafc;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.92) 0%, rgba(2, 6, 23, 0.92) 100%);
+            border: 1px solid rgba(71, 85, 105, 0.75);
+            box-shadow: inset 0 1px 0 rgba(148, 163, 184, 0.08), 0 0 0 1px rgba(2, 6, 23, 0.4);
         }
 
-        .pokeball-announcement p:first-child {
-            color: #fecdd3 !important;
+        .pokeball-menu-button {
+            color: #e2e8f0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(2, 6, 23, 0.95) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.32);
+        }
+
+        .pokeball-menu-button:hover {
+            color: #ffffff;
+            border-color: rgba(96, 165, 250, 0.7);
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);
+        }
+
+        .pokeball-dropdown {
+            background: rgba(2, 6, 23, 0.96);
+            border: 1px solid rgba(30, 41, 59, 0.95);
+            box-shadow: 0 18px 40px rgba(2, 6, 23, 0.72);
         }
 
         .chart-wrapper {
-            width: 84px;
-            height: 84px;
-            border-radius: 999px;
+            width: 78px;
+            height: 78px;
+            border-radius: 9999px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             background: conic-gradient(#ef4444 0%, #f8fafc 0);
-            border: 2px solid rgba(15, 23, 42, 0.75);
-            box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.6);
-            transition: box-shadow 0.25s ease;
-            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(2, 6, 23, 0.5), inset 0 0 0 1px rgba(148, 163, 184, 0.35);
         }
 
-        .chart-wrapper::before {
+        .chart-wrapper::after {
             content: '';
             position: absolute;
-            left: 0;
-            right: 0;
-            top: 50%;
-            height: 3px;
-            background: rgba(15, 23, 42, 0.92);
-            transform: translateY(-50%);
-            z-index: 2;
+            inset: 50% auto auto 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(15, 23, 42, 0.6);
+            transform: translateY(-1px);
+            pointer-events: none;
         }
 
         .pokeball-core {
-            width: 66px;
-            height: 66px;
-            border-radius: 999px;
+            width: 64px;
+            height: 64px;
+            border-radius: 9999px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(180deg, #ef4444 0%, #ef4444 47%, #111827 47%, #111827 53%, #ffffff 53%, #f1f5f9 100%);
-            border: 2px solid rgba(15, 23, 42, 0.9);
+            background: linear-gradient(180deg, #ef4444 0%, #dc2626 48%, #f8fafc 48%, #ffffff 100%);
+            border: 3px solid #0f172a;
+            box-shadow: inset 0 -8px 12px rgba(2, 6, 23, 0.12), inset 0 8px 10px rgba(255, 255, 255, 0.25);
             position: relative;
-            z-index: 3;
-            box-shadow: inset 0 10px 14px rgba(255, 74, 119, 0.32);
+            z-index: 1;
         }
 
         .pokeball-core::before {
             content: '';
             position: absolute;
-            top: 6px;
-            left: 9px;
-            right: 9px;
-            height: 16px;
-            border-radius: 999px;
-            background: radial-gradient(circle at center, rgba(255, 30, 86, 0.35) 0%, rgba(255, 30, 86, 0.14) 62%, transparent 100%);
-            filter: blur(1px);
-            pointer-events: none;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 8px;
+            transform: translateY(-50%);
+            background: #0f172a;
+            box-shadow: inset 0 1px 0 rgba(148, 163, 184, 0.35);
+            z-index: 1;
+        }
+
+        .pokeball-core::after {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 10px;
+            width: 20px;
+            height: 10px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.35);
+            transform: rotate(-18deg);
+            z-index: 1;
         }
 
         .pokeball-button {
             width: 28px;
             height: 28px;
-            border-radius: 999px;
-            border: 2px solid rgba(15, 23, 42, 0.85);
-            background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+            border-radius: 9999px;
+            background: radial-gradient(circle at 35% 30%, #ffffff 0%, #e2e8f0 100%);
+            border: 4px solid #111827;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 0 2px rgba(248, 250, 252, 0.9);
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.45), inset 0 0 0 2px rgba(255, 255, 255, 0.65);
+            position: relative;
+            z-index: 2;
         }
 
         .pokeball-pct {
             font-size: 10px;
             line-height: 1;
-            font-weight: 900;
             color: #0f172a;
+            font-weight: 900;
             letter-spacing: -0.02em;
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
         }
 
-        .pokedex-signature::after {
-            content: none;
+        .pct-sign {
+            font-size: 11px;
+            color: #1d4ed8;
+            margin-left: 0.5px;
         }
-
-
-
-
-
-
 
         .signature-neon { color: #ff1e56; text-shadow: 0 0 6px rgba(255, 30, 86, 0.95), 0 0 12px rgba(255, 30, 86, 0.85), 0 0 24px rgba(225, 8, 78, 0.75), 0 0 42px rgba(190, 18, 60, 0.55); animation: flicker 1.5s infinite alternate; position: relative; z-index: 2; }
 
@@ -257,7 +277,7 @@
 
 
 
-        .config-check:checked::after { content: ' ? '; color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: 900; font-size: 9px; }
+        .config-check:checked::after { content: '\2713'; color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: 900; font-size: 12px; line-height: 1; }
 
 
 
@@ -989,7 +1009,7 @@
 
 
 
-        /* Separador típico */
+        /* Separador tépico */
 
 
 
@@ -1317,7 +1337,7 @@
 
 
 
-        /* Efeito Pokébola (ícone Animado) */
+        /* Efeito Pokébola (Ícone Animado) */
 
 
 
@@ -1353,7 +1373,7 @@
 
 
 
-<body class="antialiased selection:bg-red-500 selection:text-white flex flex-col min-h-screen">
+<body class="antialiased bg-slate-950 text-slate-100 selection:bg-red-500 selection:text-white flex flex-col min-h-screen">
 
 
 
@@ -1381,7 +1401,7 @@
 
 
 
-                    <div class="pokeball-brand-badge w-10 h-10 flex items-center justify-center font-black italic shadow-lg text-xl">PC</div>
+                    <div class="pokeball-brand-badge w-12 h-12 flex items-center justify-center font-black italic shadow-lg text-2xl">PC</div>
 
 
 
@@ -1521,7 +1541,7 @@
 
 
 
-                            <span class="text-base">🔴</span>
+                            <span class="text-base">🆙</span>
 
 
 
@@ -1541,7 +1561,7 @@
 
 
 
-                            <span class="text-base">🔮</span>
+                            <span class="text-base">🌈️</span>
 
 
 
@@ -1561,7 +1581,7 @@
 
 
 
-                            <span class="text-base">🏆</span>
+                            <span class="text-base">🏆️</span>
 
 
 
@@ -1581,7 +1601,7 @@
 
 
 
-                            <span class="text-base">💡</span>
+                            <span class="text-base">📖️</span>
 
 
 
@@ -1601,11 +1621,11 @@
 
 
 
-                            <span class="text-base">🎮</span>
+                            <span class="text-base">📡️</span>
 
 
 
-                            <span class="text-[10px] font-black text-slate-300 group-hover:text-cyan-400 uppercase tracking-widest">Pokélog (Game)</span>
+                            <span class="text-[10px] font-black text-slate-300 group-hover:text-cyan-400 uppercase tracking-widest">Pokélog</span>
 
 
 
@@ -1653,7 +1673,7 @@
 
 
 
-                                <span class="text-base">🛡️</span>
+                                <span class="text-base">⚙️🔒</span>
 
 
 
@@ -1833,7 +1853,7 @@
 
 
 
-            <p class="text-[10px] sm:text-xs text-blue-200 font-black uppercase tracking-widest">📣 Anúncio Ativo</p>
+            <p class="text-[10px] sm:text-xs text-blue-200 font-black uppercase tracking-widest">📢️ Anúncio Ativo</p>
 
 
 
@@ -2013,7 +2033,7 @@
 
 
 
-                <p class="text-xs text-slate-400 font-medium pl-5">Acompanhe qual dos seus personagens foi o mais ativo nas rotinas este Mês.</p>
+                <p class="text-xs text-slate-400 font-medium pl-5">Acompanhe qual dos seus personagens foi o mais ativo nas rotinas este Màs.</p>
 
 
 
@@ -2101,7 +2121,7 @@
 
 
 
-                            <span class="guide-extra hidden bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (40 Energia)</span>
+                            <span class="guide-extra bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (40 Energia)</span>
 
 
 
@@ -2117,7 +2137,7 @@
 
 
 
-                            <span class="guide-extra hidden text-xl transition-all duration-300">💰</span>
+                            <span class="guide-extra text-xl transition-all duration-300">💰</span>
 
 
 
@@ -2177,7 +2197,7 @@
 
 
 
-                                    <span class="text-blue-500 mt-0.5">💎</span>
+                                    <span class="text-blue-500 mt-0.5">◆️</span>
 
 
 
@@ -2193,7 +2213,7 @@
 
 
 
-                                    <span class="text-emerald-500 mt-0.5">🔥</span>
+                                    <span class="text-emerald-500 mt-0.5">◆️</span>
 
 
 
@@ -2209,7 +2229,7 @@
 
 
 
-                                    <span class="text-amber-500 mt-0.5">⬇</span>
+                                    <span class="text-amber-500 mt-0.5">?</span>
 
 
 
@@ -2301,7 +2321,7 @@
 
 
 
-                            <span class="guide-extra hidden bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (52 Energia)</span>
+                            <span class="guide-extra bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (52 Energia)</span>
 
 
 
@@ -2317,7 +2337,7 @@
 
 
 
-                            <span class="guide-extra hidden text-xl transition-all duration-300">⚡</span>
+                            <span class="guide-extra text-xl transition-all duration-300">🌱</span>
 
 
 
@@ -2377,7 +2397,7 @@
 
 
 
-                                    <span class="text-purple-500 mt-0.5">💎</span>
+                                    <span class="text-purple-500 mt-0.5">◆️</span>
 
 
 
@@ -2393,7 +2413,7 @@
 
 
 
-                                    <span class="text-emerald-500 mt-0.5">🔥</span>
+                                    <span class="text-emerald-500 mt-0.5">◆️</span>
 
 
 
@@ -2409,7 +2429,7 @@
 
 
 
-                                    <span class="text-amber-500 mt-0.5">⬇</span>
+                                    <span class="text-amber-500 mt-0.5">?</span>
 
 
 
@@ -2477,7 +2497,7 @@
 
 
 
-                            <span class="text-[8px] font-black text-red-400 uppercase tracking-widest block mb-1">⚡ Observação Tática (variância)</span>
+                            <span class="text-[8px] font-black text-red-400 uppercase tracking-widest block mb-1">? Observação Tática (variância)</span>
 
 
 
@@ -2517,7 +2537,7 @@
 
 
 
-                            <span class="guide-extra hidden bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (52 Energia)</span>
+                            <span class="guide-extra bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (52 Energia)</span>
 
 
 
@@ -2533,7 +2553,7 @@
 
 
 
-                            <span class="guide-extra hidden text-xl transition-all duration-300">⚙</span>
+                            <span class="guide-extra text-xl transition-all duration-300">⚙</span>
 
 
 
@@ -2593,7 +2613,7 @@
 
 
 
-                                    <span class="text-amber-500 mt-0.5">💎</span>
+                                    <span class="text-amber-500 mt-0.5">◆️</span>
 
 
 
@@ -2609,7 +2629,7 @@
 
 
 
-                                    <span class="text-blue-500 mt-0.5">⚡</span>
+                                    <span class="text-blue-500 mt-0.5">?</span>
 
 
 
@@ -2625,7 +2645,7 @@
 
 
 
-                                    <span class="text-emerald-500 mt-0.5">🔥</span>
+                                    <span class="text-emerald-500 mt-0.5">◆️</span>
 
 
 
@@ -2641,7 +2661,7 @@
 
 
 
-                                    <span class="text-amber-500 mt-0.5">⬇</span>
+                                    <span class="text-amber-500 mt-0.5">?</span>
 
 
 
@@ -2733,7 +2753,7 @@
 
 
 
-                            <span class="guide-extra hidden bg-blue-500/20 text-blue-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-blue-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (80 Energia)</span>
+                            <span class="guide-extra bg-blue-500/20 text-blue-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-blue-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (80 Energia)</span>
 
 
 
@@ -2749,7 +2769,7 @@
 
 
 
-                            <span class="guide-extra hidden text-xl transition-all duration-300">🧭</span>
+                            <span class="guide-extra text-xl transition-all duration-300">🧭</span>
 
 
 
@@ -2785,7 +2805,7 @@
 
 
 
-                            <span class="text-[9px] font-bold bg-red-900/30 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-lg inline-block">🔒 Food e Berries bloqueados</span>
+                            <span class="text-[9px] font-bold bg-red-900/30 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-lg inline-block">⚠️ Food e Berries bloqueados</span>
 
 
 
@@ -2813,7 +2833,7 @@
 
 
 
-                                    <span class="text-pink-400 mt-0.5">💎</span>
+                                    <span class="text-pink-400 mt-0.5">◆️</span>
 
 
 
@@ -2829,7 +2849,7 @@
 
 
 
-                                    <span class="text-orange-500 mt-0.5">💎</span>
+                                    <span class="text-orange-500 mt-0.5">◆️</span>
 
 
 
@@ -2845,7 +2865,7 @@
 
 
 
-                                    <span class="text-amber-500 mt-0.5">⬇</span>
+                                    <span class="text-amber-500 mt-0.5">?</span>
 
 
 
@@ -2945,7 +2965,7 @@
 
 
 
-                            <span class="guide-extra hidden bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (40 Energia)</span>
+                            <span class="guide-extra bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (40 Energia)</span>
 
 
 
@@ -2961,7 +2981,7 @@
 
 
 
-                            <span class="guide-extra hidden text-xl transition-all duration-300">❄</span>
+                            <span class="guide-extra text-xl transition-all duration-300">❄</span>
 
 
 
@@ -3037,7 +3057,7 @@
 
 
 
-                                    <span class="text-emerald-500 mt-0.5">🔥</span>
+                                    <span class="text-emerald-500 mt-0.5">◆️</span>
 
 
 
@@ -3053,7 +3073,7 @@
 
 
 
-                                    <span class="text-amber-500 mt-0.5">⬇</span>
+                                    <span class="text-amber-500 mt-0.5">?</span>
 
 
 
@@ -3121,7 +3141,7 @@
 
 
 
-                            <span class="text-[8px] font-black text-red-400 uppercase tracking-widest block mb-1">⚡ Observação Tática (variância)</span>
+                            <span class="text-[8px] font-black text-red-400 uppercase tracking-widest block mb-1">? Observação Tática (variância)</span>
 
 
 
@@ -3161,7 +3181,7 @@
 
 
 
-                            <span class="guide-extra hidden bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (52 Energia)</span>
+                            <span class="guide-extra bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (52 Energia)</span>
 
 
 
@@ -3177,7 +3197,7 @@
 
 
 
-                            <span class="guide-extra hidden text-xl transition-all duration-300">🐉</span>
+                            <span class="guide-extra text-xl transition-all duration-300">🐉</span>
 
 
 
@@ -3237,7 +3257,7 @@
 
 
 
-                                    <span class="text-blue-500 mt-0.5">💎</span>
+                                    <span class="text-blue-500 mt-0.5">◆️</span>
 
 
 
@@ -3253,7 +3273,7 @@
 
 
 
-                                    <span class="text-emerald-500 mt-0.5">🔥</span>
+                                    <span class="text-emerald-500 mt-0.5">◆️</span>
 
 
 
@@ -3269,7 +3289,7 @@
 
 
 
-                                    <span class="text-amber-500 mt-0.5">⬇</span>
+                                    <span class="text-amber-500 mt-0.5">?</span>
 
 
 
@@ -3337,11 +3357,11 @@
 
 
 
-                            <span class="text-[8px] font-black text-yellow-400 uppercase tracking-widest block mb-1">⚡ Observação Tática (Curva de Aprendizado /span>
+                            <span class="text-[8px] font-black text-yellow-400 uppercase tracking-widest block mb-1">? Observação Tática (Curva de Aprendizado /span>
 
 
 
-                            <p class="text-[9px] text-slate-300 italic leading-relaxed">Este BOSS exige <b>certa experiência para compreender a melhor forma de destruir as estátuas</b>. O tempo de execução é superior ao dos outros bosses, portanto pode demorar um pouco para <b>DONAR</b>. Persista e estude os padrões das fases!</p>
+                            <p class="text-[9px] text-slate-300 italic leading-relaxed">Este BOSS exige <b>certa experiência para compreender a melhor forma de destruir as estátuas</b>. O tempo de execução ã superior ao dos outros bosses, portanto pode demorar um pouco para <b>DONAR</b>. Persista e estude os padrões das fases!</p>
 
 
 
@@ -3377,7 +3397,7 @@
 
 
 
-                            <span class="guide-extra hidden bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (52 Energia)</span>
+                            <span class="guide-extra bg-red-500/20 text-red-400 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-red-500/30 tracking-widest mb-1 inline-block transition-all duration-300">Mystery Dungeon (52 Energia)</span>
 
 
 
@@ -3393,7 +3413,7 @@
 
 
 
-                            <span class="guide-extra hidden text-xl transition-all duration-300">☀️</span>
+                            <span class="guide-extra text-xl transition-all duration-300">☀️</span>
 
 
 
@@ -3453,7 +3473,7 @@
 
 
 
-                                    <span class="text-purple-500 mt-0.5">💎</span>
+                                    <span class="text-purple-500 mt-0.5">◆️</span>
 
 
 
@@ -3469,7 +3489,7 @@
 
 
 
-                                    <span class="text-emerald-500 mt-0.5">🔥</span>
+                                    <span class="text-emerald-500 mt-0.5">◆️</span>
 
 
 
@@ -3485,7 +3505,7 @@
 
 
 
-                                    <span class="text-amber-500 mt-0.5">⬇</span>
+                                    <span class="text-amber-500 mt-0.5">?</span>
 
 
 
@@ -3553,7 +3573,7 @@
 
 
 
-                            <span class="text-[8px] font-black text-red-400 uppercase tracking-widest block mb-1">⚡ Observação Tática (variância)</span>
+                            <span class="text-[8px] font-black text-red-400 uppercase tracking-widest block mb-1">? Observação Tática (variância)</span>
 
 
 
@@ -3597,7 +3617,7 @@
 
 
 
-                    <h3 class="text-sm font-black text-blue-300 uppercase italic mb-3 flex items-center gap-2"><span>📝</span> Notas Sobre Food e Held Item</h3>
+                    <h3 class="text-sm font-black text-blue-300 uppercase italic mb-3 flex items-center gap-2"><span>📝️</span> Notas Sobre Food e Held Item</h3>
 
 
 
@@ -3673,7 +3693,7 @@
 
 
 
-                    <h3 class="text-sm font-black text-white uppercase italic mb-4 flex items-center gap-2"><span class="text-blue-500">☁</span> Nuvem vs. Visitante</h3>
+                    <h3 class="text-sm font-black text-white uppercase italic mb-4 flex items-center gap-2"><span class="text-blue-500">?</span> Nuvem vs. Visitante</h3>
 
 
 
@@ -3705,7 +3725,7 @@
 
 
 
-                            <p class="text-[11px] text-slate-300 font-medium leading-relaxed">Os dados ficam retidos estritamente na memória temporal do seu dispositivo (Local Storage). <br><b class="text-red-400">Risco:</b> Limpar o histórico ou cookies do navegador causa a eliminação irreversível de todos os seus personagens e relatórios.</p>
+                            <p class="text-[11px] text-slate-300 font-medium leading-relaxed">Os dados ficam retidos estritamente na memória temporal do seu dispositivo (Local Storage). <br><b class="text-red-400">Risco:</b> Limpar o histórico ou cookies do navegador causa a eliminação irreversível de todos os seus personagens e relatérios.</p>
 
 
 
@@ -3733,7 +3753,7 @@
 
 
 
-                    <h3 class="text-sm font-black text-white uppercase italic mb-4 flex items-center gap-2"><span class="text-emerald-500">🔧</span> Arsenal de Otimização</h3>
+                    <h3 class="text-sm font-black text-white uppercase italic mb-4 flex items-center gap-2"><span class="text-emerald-500">⚙️</span> Arsenal de Otimização</h3>
 
 
 
@@ -3745,7 +3765,7 @@
 
 
 
-                            <span class="text-lg">📋</span>
+                            <span class="text-lg">📋️</span>
 
 
 
@@ -3773,7 +3793,7 @@
 
 
 
-                            <span class="text-lg">⚙️</span>
+                            <span class="text-lg">🔄️</span>
 
 
 
@@ -3801,7 +3821,7 @@
 
 
 
-                            <span class="text-lg">💰</span>
+                            <span class="text-lg">💰️</span>
 
 
 
@@ -3829,35 +3849,7 @@
 
 
 
-                            <span class="text-lg">🔔</span>
-
-
-
-                            <div>
-
-
-
-                                <span class="text-[10px] font-black text-rose-400 uppercase tracking-widest block">Despertador Cognitivo</span>
-
-
-
-                                <p class="text-[10px] text-slate-400 font-medium mt-0.5 leading-snug">Estimulação visual (pulsações neon) e áudio dinâmico despachado 5 minutos antes da iniciação de Globais e Poképarks.</p>
-
-
-
-                            </div>
-
-
-
-                        </li>
-
-
-
-                        <li class="bg-slate-950 rounded-xl p-3 border border-slate-800 flex items-start gap-3">
-
-
-
-                            <span class="text-lg">�</span>
+                           <span class="text-lg">🌈️</span>
 
 
 
@@ -3883,9 +3875,25 @@
 
                         <li class="bg-slate-950 rounded-xl p-3 border border-slate-800 flex items-start gap-3">
 
+                            <span class="text-lg">⏰️</span>
+
+                            <div>
+
+                                <span class="text-[10px] font-black text-rose-400 uppercase tracking-widest block">Despertador Cognitivo</span>
+
+                                <p class="text-[10px] text-slate-400 font-medium mt-0.5 leading-snug">Estimulação visual (pulsações neon) e áudio dinâmico despachado 5 minutos antes da iniciação de Globais e Poképarks.</p>
+
+                            </div>
+
+                        </li>
 
 
-                            <span class="text-lg">💡</span>
+
+                        <li class="bg-slate-950 rounded-xl p-3 border border-slate-800 flex items-start gap-3">
+
+
+
+                            <span class="text-lg">📖️</span>
 
 
 
@@ -3913,7 +3921,7 @@
 
 
 
-                            <span class="text-lg">📡</span>
+                            <span class="text-lg">📡️</span>
 
 
 
@@ -3993,11 +4001,11 @@
 
 
 
-                <button onclick="console.log('💬 Feedbacks clicked'); window.ui.switchAdminTab('feedbacks');" class="admin-tab-btn px-4 py-2 rounded-lg font-black text-[10px] uppercase tracking-widest whitespace-nowrap bg-rose-500/20 text-rose-400 border border-rose-500/30 active transition-all" data-tab="feedbacks">
+                <button onclick="console.log('💬️ Feedbacks clicked'); window.ui.switchAdminTab('feedbacks');" class="admin-tab-btn px-4 py-2 rounded-lg font-black text-[10px] uppercase tracking-widest whitespace-nowrap bg-rose-500/20 text-rose-400 border border-rose-500/30 active transition-all" data-tab="feedbacks">
 
 
 
-                    💬 Feedbacks
+                    💬️ Feedbacks
 
 
 
@@ -4009,7 +4017,7 @@
 
 
 
-                    📊 Estatísticas
+                    📊️ Estatísticas
 
 
 
@@ -4017,11 +4025,11 @@
 
 
 
-                <button onclick="console.log('📊 Announcements clicked'); window.ui.switchAdminTab('announcements');" class="admin-tab-btn px-4 py-2 rounded-lg font-black text-[10px] uppercase tracking-widest whitespace-nowrap bg-slate-700 text-slate-300 hover:bg-slate-600 border border-slate-600 transition-all" data-tab="announcements">
+                <button onclick="console.log('📢️ Announcements clicked'); window.ui.switchAdminTab('announcements');" class="admin-tab-btn px-4 py-2 rounded-lg font-black text-[10px] uppercase tracking-widest whitespace-nowrap bg-slate-700 text-slate-300 hover:bg-slate-600 border border-slate-600 transition-all" data-tab="announcements">
 
 
 
-                    📊 Anúncios
+                    📢️ Anúncios
 
 
 
@@ -4033,7 +4041,7 @@
 
 
 
-                    📊 Usuários
+                    👥️ Usuários
 
 
 
@@ -4041,11 +4049,11 @@
 
 
 
-                <button onclick="console.log('📊 Content clicked'); window.ui.switchAdminTab('content');" class="admin-tab-btn px-4 py-2 rounded-lg font-black text-[10px] uppercase tracking-widest whitespace-nowrap bg-slate-700 text-slate-300 hover:bg-slate-600 border border-slate-600 transition-all" data-tab="content">
+                <button onclick="console.log('📝️ Content clicked'); window.ui.switchAdminTab('content');" class="admin-tab-btn px-4 py-2 rounded-lg font-black text-[10px] uppercase tracking-widest whitespace-nowrap bg-slate-700 text-slate-300 hover:bg-slate-600 border border-slate-600 transition-all" data-tab="content">
 
 
 
-                    📊 Conteúdo
+                    📝️ Conteúdo
 
 
 
@@ -4057,7 +4065,7 @@
 
 
 
-                    📊 Configurações
+                    ⚙️ Configurações
 
 
 
@@ -4169,7 +4177,7 @@
 
 
 
-            <span class="text-xs font-black uppercase tracking-widest whitespace-nowrap">Nova Versão Disponível! ✨</span>
+            <span class="text-xs font-black uppercase tracking-widest whitespace-nowrap">Nova Versão Disponível! ?</span>
 
 
 
@@ -4521,11 +4529,11 @@
 
 
 
-                    <option value="sugestao">💡 Sugestão de Melhoria</option>
+                    <option value="sugestao">💡️ Sugestão de Melhoria</option>
 
 
 
-                    <option value="bug">🐛 Reportar um Erro/Bug</option>
+                    <option value="bug">🐛️ Reportar um Erro/Bug</option>
 
 
 
@@ -4713,7 +4721,7 @@
 
 
 
-                        <label class="text-[8px] font-black text-cyan-500 uppercase tracking-widest ml-1">🎣 Nível de Pesca</label>
+                        <label class="text-[8px] font-black text-cyan-500 uppercase tracking-widest ml-1">🎣️ Nível de Pesca</label>
 
 
 
@@ -4729,7 +4737,7 @@
 
 
 
-                        <label class="text-[8px] font-black text-pink-500 uppercase tracking-widest ml-1">🎣 Pokémon Capturados</label>
+                        <label class="text-[8px] font-black text-pink-500 uppercase tracking-widest ml-1">🎯️ Pokémon Capturados</label>
 
 
 
@@ -4793,7 +4801,7 @@
 
 
 
-                    <label id="label-clan" class="text-[8px] font-black text-slate-500 uppercase tracking-widest ml-1">🏰 Clã</label>
+                    <label id="label-clan" class="text-[8px] font-black text-slate-500 uppercase tracking-widest ml-1">⚔️ Clã</label>
 
 
 
@@ -4809,7 +4817,7 @@
 
 
 
-                            <span class="bg-red-600 clan-badge-small" id="current-clan-icon">🏰</span>
+                            <span class="bg-red-600 clan-badge-small" id="current-clan-icon">⚔️</span>
 
 
 
@@ -4917,7 +4925,7 @@
 
 
 
-                            <div id="event-choices" class="sub-config-grid">
+                            <div id="dungeon-choices" class="sub-config-grid">
 
 
 
@@ -4949,7 +4957,7 @@
 
 
 
-                                <span class="text-xs font-bold text-slate-300 italic">Diárias (Daily)</span>
+                                <span class="text-xs font-bold text-slate-300 italic">Diárias</span>
 
 
 
@@ -5681,13 +5689,13 @@
 
                     <ul class="text-[11px] text-slate-400 list-disc ml-4 space-y-1.5 font-medium">
 
-                        <li><b>Ordem Global Preservada:</b> Confirmada e aplicada a sequência fixa global Sunflora → Magcargo → Tyranitar → Dragonair → Mamoswine, sem troca de ordem entre eventos.</li>
+                        <li><b>Ordem Global Preservada:</b> Confirmada e aplicada a sequência fixa global Sunflora → Magcargo → Tyranitar → Dragonair → Mamoswine, sem troca de ordem entre eventos. → ☀️</li>
 
                         <li><b>Horários Ajustados:</b> Correção do alinhamento dos horários para respeitar a rotação contínua (12h, 16h, 20h, 23h) conforme o boss anterior.</li>
 
                         <li><b>Compatibilidade com Configuração Antiga:</b> Configurações legadas com data-base incorreta foram migradas automaticamente para manter o ciclo correto para todos os visitantes.</li>
 
-                        <li><b>Exemplo Validado:</b> Em 20/03, 20h = Sunflora e 23h = Magcargo; em 21/03, 12h = Mamoswine, seguindo a ordem normal.</li>
+                        <li><b>Exemplo Validado:</b> Em 20/03, 20h = Sunflora e 23h = Magcargo; em 21/03, 12h = Mamoswine, seguindo a ordem normal. → ☀️</li>
 
                     </ul>
 
@@ -5719,7 +5727,7 @@
 
 
 
-                        <li><b>Cores Dedicadas por Servidor:</b> Cada mundo agora possui sua cor única e ícone temático (Gold ~, Aurora ~~, Omega 269b, Emerald ~~, e mais). Melhora drasticamente a identificação visual rápida.</li>
+                        <li><b>Cores Dedicadas por Servidor:</b> Cada mundo agora possui sua cor única e ícone temático (Gold ⭐, Aurora 🌿️, Omega ♾️, Emerald 💎️, e mais). Melhora drasticamente a identificação visual rápida.</li>
 
 
 
@@ -5727,7 +5735,7 @@
 
 
 
-                        <li><b>ícone de Captura Pokéball:</b> O ícone de Pokémon Capturados foi alterado para ~~ (estilo pokéball), melhorando a coerência temática com o jogo.</li>
+                        <li><b>Ícone de Captura Pokéball:</b> O ícone de Pokémon Capturados foi alterado para 🔴 (estilo pokéball), melhorando a coerência temática com o jogo.</li>
 
 
 
@@ -5771,11 +5779,11 @@
 
 
 
-                        <li><b>Ciclo Dinâmico de Bosses:</b> Implementado sistema de rotação automática dos bosses globais. A sequência fixa é Sunflora → Magcargo → Tyranitar → Dragonair → Mamoswine. Dentro de cada dia, os horários 12h, 16h, 20h e 23h sempre seguem essa ordem, sem trocar a sequência.</li>
+                        <li><b>Ciclo Dinâmico de Bosses:</b> Implementado sistema de rotação automática dos bosses globais. A sequência fixa → Sunflora → Magcargo → Tyranitar → Dragonair → Mamoswine. Dentro de cada dia, os horários 12h, 16h, 20h e 23h sempre seguem essa ordem, sem trocar a sequência. → ☀️</li>
 
 
 
-                        <li><b>Exemplo Prático do Ciclo:</b> Em 20/03: 12h Dragonair, 16h Mamoswine, 20h Sunflora, 23h Magcargo. Em 21/03: 12h Mamoswine e segue a ordem normal. O ciclo mantém sempre a mesma sequência global.</li>
+                        <li><b>Exemplo Prático do Ciclo:</b> Em 20/03: 12h Dragonair, 16h Mamoswine, 20h Sunflora, 23h Magcargo. Em 21/03: 12h Mamoswine e segue a ordem normal. O ciclo mantém sempre a mesma sequência global. → ☀️</li>
 
 
 
@@ -5823,7 +5831,7 @@
 
 
 
-                        <li><b>Atenção Cognitiva (Eventos):</b> Implementamos um efeito de pulsação luminosa na barra superior. Baseado na neurociÁncia da visão periférica, este efeito capta a atenção de forma instintiva assim que o evento inicia, desligando-se de seguida para manter o painel "limpo".</li>
+                        <li><b>Atenção Cognitiva (Eventos):</b> Implementamos um efeito de pulsação luminosa na barra superior. Baseado na neurociência da visão periférica, este efeito capta a atenção de forma instintiva assim que o evento inicia, desligando-se de seguida para manter o painel "limpo".</li>
 
 
 
@@ -5875,7 +5883,7 @@
 
 
 
-                        <li><b>Ajuste Visual:</b> Foi adicionado um ícone (favicon) de Pokébola na aba do navegador para facilitar a rápida identificação do site pelo utilizador.</li>
+                        <li><b>Ajuste Visual:</b> Foi adicionado um Ícone (favicon) de Pokébola na aba do navegador para facilitar a rápida identificação do site pelo utilizador.</li>
 
 
 
@@ -5955,7 +5963,7 @@
 
 
 
-                        <li><b>Ligação Direta (API Cloudflare):</b> Criada a nova aba "Pokélog (Game)" no menu principal. O sistema agora intercepta e exibe em tempo real as atualizações oficiais (Changelogs) enviadas pela equipa da PokéXGames no Discord.</li>
+                        <li><b>Ligação Direta (API Cloudflare):</b> Criada a nova aba "Pokélog" no menu principal. O sistema agora intercepta e exibe em tempo real as atualizações oficiais (Changelogs) enviadas pela equipa da PokéXGames no Discord.</li>
 
 
 
@@ -5999,7 +6007,7 @@
 
 
 
-                        <li><b>Atenção (Marcadores):</b> Se as marcações (checks) do seu personagem desapareceram após esta alteração, não se preocupe. Basta clicar em <b>"Editar" (ícone ~~)</b> e depois em <b>"Salvar Treinador"</b> para sincronizar a estrutura corretamente com a Nuvem.</li>
+                        <li><b>Atenção (Marcadores):</b> Se as marcações (checks) do seu personagem desapareceram após esta alteração, não se preocupe. Basta clicar em <b>"Editar" (ícone ✏️)</b> e depois em <b>"Salvar Treinador"</b> para sincronizar a estrutura corretamente com a Nuvem.</li>
 
 
 
@@ -6215,7 +6223,7 @@
 
 
 
-        <button onclick="ui.openFeedbackModal()" class="text-[10px] text-slate-400 hover:text-white flex items-center gap-1.5 font-black uppercase tracking-widest transition-colors"><span class="text-base">ℹ️</span> Sugestões/Bugs</button>
+        <button onclick="ui.openFeedbackModal()" class="text-[10px] text-slate-400 hover:text-white flex items-center gap-1.5 font-black uppercase tracking-widest transition-colors"><span class="text-base">💬️</span> Sugestões/Bugs</button>
 
 
 
@@ -6223,7 +6231,7 @@
 
 
 
-        <button onclick="ui.openPixModal()" class="text-[10px] text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 font-black uppercase tracking-widest border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 rounded-xl transition-all shadow-sm hover:shadow-emerald-500/20 active:scale-95"><span class="text-base">ℹ️</span> Apoiar Criador</button>
+        <button onclick="ui.openPixModal()" class="text-[10px] text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 font-black uppercase tracking-widest border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 rounded-xl transition-all shadow-sm hover:shadow-emerald-500/20 active:scale-95"><span class="text-base">💚️</span> Apoiar Criador</button>
 
 
 
@@ -6231,7 +6239,7 @@
 
 
 
-        <button onclick="ui.openChangelog()" class="text-[10px] text-slate-400 hover:text-white flex items-center gap-1.5 font-black uppercase tracking-widest transition-colors active:scale-95"><span class="text-base">ℹ️</span> Histórico (Log)</button>
+        <button onclick="ui.openChangelog()" class="text-[10px] text-slate-400 hover:text-white flex items-center gap-1.5 font-black uppercase tracking-widest transition-colors active:scale-95"><span class="text-base">📜️</span> Histórico (Log)</button>
 
 
 
@@ -6259,7 +6267,7 @@
 
 
 
-    <p class="text-[8px] font-bold text-slate-600 uppercase tracking-widest mt-2">© 2026 PXG Check Project • v<span id="app-version-display"></span></p>
+    <p class="text-[8px] font-bold text-slate-600 uppercase tracking-widest mt-2">© 2026 PXG Check Project · v<span id="app-version-display"></span></p>
 
 
 
@@ -6287,11 +6295,11 @@
 
 
 
-    <div id="boss-pokeball-icon" class="pokeball-alert-icon text-center">🔴</div>
+    <div id="boss-pokeball-icon" class="pokeball-alert-icon text-center">⚡️⚡️</div>
 
 
 
-    <h2 id="boss-title" class="boss-alert-title">🎪 BOSS SELVAGEM!</h2>
+    <h2 id="boss-title" class="boss-alert-title">⚠️ BOSS SELVAGEM!</h2>
 
 
 
@@ -6307,7 +6315,7 @@
 
 
 
-            <span id="boss-emoji" style="font-size: 2em;">🎪</span>
+            <span id="boss-emoji" style="font-size: 2em;">⚠️</span>
 
 
 
@@ -6327,11 +6335,11 @@
 
 
 
-            <div>⚡ <span id="boss-threat">--</span></div>
+            <div>⚠ <span id="boss-threat">--</span></div>
 
 
 
-            <div style="margin-top: 8px;">⚡ TIPO: <span id="boss-element" style="color: #fbbf24;">--</span></div>
+            <div style="margin-top: 8px;">🎯 TIPO: <span id="boss-element" style="color: #fbbf24;">--</span></div>
 
 
 
@@ -6355,11 +6363,11 @@
 
 
 
-        ⚡ O COMBATE INICIA EM SEGUNDOS!<br>
+        ⏰ O COMBATE INICIA EM SEGUNDOS!<br>
 
 
 
-        <strong style="color: #fbbf24; display: block; margin-top: 8px;">💪 PREPARE-SE SEMPRE!</strong>
+        <strong style="color: #fbbf24; display: block; margin-top: 8px;">⚔️⚔️ PREPARE-SE SEMPRE!</strong>
 
 
 
@@ -6371,7 +6379,7 @@
 
 
 
-        ✓ ENTENDI ✓ PREPARADO
+        ✅ ENTENDI ⚔️ PREPARADO
 
 
 
@@ -6547,7 +6555,11 @@
 
 
 
-        const checkUrl = window.location.pathname + '~nocache=' + new Date().getTime();
+        const checkUrl = new URL(window.location.href);
+
+
+
+        checkUrl.searchParams.set('nocache', String(Date.now()));
 
 
 
@@ -6555,7 +6567,7 @@
 
 
 
-        fetch(checkUrl, {
+        fetch(checkUrl.toString(), {
 
 
 
@@ -6639,7 +6651,15 @@
 
 
 
-        window.location.href = window.location.pathname + '~v=' + new Date().getTime();
+        const updateUrl = new URL(window.location.href);
+
+
+
+        updateUrl.searchParams.set('v', String(Date.now()));
+
+
+
+        window.location.href = updateUrl.toString();
 
 
 
@@ -6723,7 +6743,7 @@
 
 
 
-    let currentLang = localStorage.getItem('pxg_lang') || 'pt';
+    let currentLang = 'pt';
 
 
 
@@ -6767,7 +6787,7 @@
 
 
 
-    const LOCAL_ADMIN_ACCESS_CODE = 'pxg-admin-local';
+    const LOCAL_ADMIN_ACCESS_CODE = 'Suet@m27';
 
 
 
@@ -7663,23 +7683,23 @@
 
 
 
-            'Gold': { text: 'text-yellow-500', icon: ' ? ' },
+            'Gold': { text: 'text-yellow-500', icon: ' ⭐ ' },
 
 
 
-            'Aurora': { text: 'text-green-400', icon: '🌌' },
+            'Aurora': { text: 'text-green-400', icon: '🌿️' },
 
 
 
-            'Omega': { text: 'text-red-600', icon: '❤️' },
+            'Omega': { text: 'text-red-600', icon: '♾️' },
 
 
 
-            'Emerald': { text: 'text-emerald-400', icon: '💎' },
+            'Emerald': { text: 'text-emerald-400', icon: '💎️' },
 
 
 
-            'Cosmic': { text: 'text-purple-500', icon: '⭐' },
+            'Cosmic': { text: 'text-purple-500', icon: '🔮' },
 
 
 
@@ -7687,31 +7707,31 @@
 
 
 
-            'Wind': { text: 'text-cyan-400', icon: '💨' },
+            'Wind': { text: 'text-cyan-400', icon: '🌬️' },
 
 
 
-            'Lunar': { text: 'text-indigo-300', icon: '🌙' },
+            'Lunar': { text: 'text-indigo-300', icon: '🌙️' },
 
 
 
-            'Ocean': { text: 'text-blue-500', icon: '🌊' },
+            'Ocean': { text: 'text-blue-500', icon: '🌊️' },
 
 
 
-            'Obsidian': { text: 'text-slate-700', icon: ' ? ' },
+            'Obsidian': { text: 'text-slate-700', icon: ' ⚫ ' },
 
 
 
-            'Flame': { text: 'text-orange-500', icon: '🔥' },
+            'Flame': { text: 'text-orange-500', icon: '🔥️' },
 
 
 
-            'Rainbow': { text: 'text-pink-400', icon: '🔮' },
+            'Rainbow': { text: 'text-pink-400', icon: '🌈️' },
 
 
 
-            'Soul': { text: 'text-violet-500', icon: ' ? ' }
+            'Soul': { text: 'text-violet-500', icon: ' 💜 ' }
 
 
 
@@ -7719,7 +7739,7 @@
 
 
 
-        return colors[world] || { text: 'text-slate-400', icon: ' ? ' };
+        return colors[world] || { text: 'text-slate-400', icon: ' ⭐ ' };
 
 
 
@@ -7783,7 +7803,7 @@
 
 
 
-                silver: "Silver Rival", dog: "Cães Legendários", ghost: "Fantasma de Lavender", violet: "Gym Violet", azalea: "Gym Azalea", goldenrod: "Gym Goldenrod",
+                silver: "Silver Rival", dog: "Cães Lendários", ghost: "Fantasma de Lavender", violet: "Gym Violet", azalea: "Gym Azalea", goldenrod: "Gym Goldenrod",
 
 
 
@@ -7803,77 +7823,7 @@
 
 
 
-        },
-
-
-
-        en: {
-
-
-
-            add: "Add Char", subtitle: "Character Management", loading: "Loading...", none: "Welcome to your Tracker!", noneDesc: "Register your first character.", 
-
-
-
-            reset: "Global Reset",
-
-
-
-            events: "Global Events", dungeons: "Dungeons", dailies: "Dailies", johto: "Gyms", clones: "Monthly", specials: "Weekly", quests: "QUESTS",
-
-
-
-            doneAt: "Done at", resetAt: "Next Reset", permanent: "Permanent", save: "Save Trainer", newName: "New Trainer", labelName: "Nickname",
-
-
-
-            finToday: "Today", finWeek: "Week", finMonth: "Month", finCurrent: "Current Balance", finSet: "Set Balance", finReason: "Reason (Optional)",
-
-
-
-            taskNames: {
-
-
-
-                boss12: "Global Boss (12:00)", boss16: "Global Boss (16:00)", boss20: "Global Boss (20:00)", boss23: "Global Boss (23:00)",
-
-
-
-                park11: "Poképark (11:00)", park15: "Poképark (15:00)", park21: "Poképark (21:00)",
-
-
-
-                blue: "Blue Dungeon", red: "Red Mystery", catch1: "Daily Catch #1", catch2: "Daily Catch #2", task: "Daily KILL",
-
-
-
-                dl_bro12: "NPC BH", dl_bro6_nw: "NPC BH NW", dl_falkner_nw: "Falkner Nightmare", dl_yellow_nw: "Yellow Parachute Nightmare", dl_jenny_nw: "Officer Jenny Nightmare", dl_raven_nw: "Raven Nightmare", dl_lance_nw: "Lance Nightmare", dl_bruno_nw: "Bruno Nightmare", dl_blanca_nw: "Blanca Nightmare", dl_sidis: "Sidis S-3 Ultra Lab", dl_mite_nw: "Mite Nightmare",
-
-
-
-                silver: "Silver Rival", dog: "Legendary Dogs", ghost: "Lavender Ghost", violet: "Violet Gym", azalea: "Azalea Gym", goldenrod: "Goldenrod Gym",
-
-
-
-                ecruteak: "Ecruteak Gym", cianwood: "Cianwood Gym", olivine: "Olivine Gym", mahogany: "Mahogany Gym", blackthorn: "Blackthorn Gym",
-
-
-
-                clones: "Clone Task (30 days)", m_secret_lab: "Secret LAB", m_clones_nw: "CLONES NW 5/6", qCyber: "Cyber Quest", qMewtwo: "Mewtwo Quest",
-
-
-
-                dzChristmas: "DZ Christmas", sp_tower: "Embedded Tower", sp_terror_nw: "Nightmare Terror", sp_eleanor: "Eleanor Outland", sp_fawkes: "Fawkes Orre", sp_factory: "Battle Factory", sp_misty_nw: "Misty Nightmare", sp_lorelei_nw: "Lorelei Nightmare", sp_subj14: "Subject #14 NW", sp_barry_nw: "Barry Mecha Nightmare", qTimeTravel: "Time Travel Quest", qTrevo: "Trevo", qOrbs: "245 Rainbow Orbs", qSarkies: "Sarkies", qTransporteNW: "Transporte NW", qKoga: "Koga Quest", qLabNW: "LAB NW"
-
-
-
-            }
-
-
-
         }
-
-
 
     };
 
@@ -7887,11 +7837,11 @@
 
 
 
-        volcanic: { name: "Volcanic", color: "bg-red-600", icon: "🔴", border: "border-red-500", text: "text-red-400" },
+        volcanic: { name: "Volcanic", color: "bg-red-600", icon: "🌋️", border: "border-red-500", text: "text-red-400" },
 
 
 
-        seavell: { name: "Seavell", color: "bg-blue-600", icon: "🌊", border: "border-blue-500", text: "text-blue-400" },
+        seavell: { name: "Seavell", color: "bg-blue-600", icon: "🌊️", border: "border-blue-500", text: "text-blue-400" },
 
 
 
@@ -7903,7 +7853,7 @@
 
 
 
-        naturia: { name: "Naturia", color: "bg-green-600", icon: "🌿", border: "border-green-500", text: "text-green-400" },
+        naturia: { name: "Naturia", color: "bg-green-600", icon: "🌿️", border: "border-green-500", text: "text-green-400" },
 
 
 
@@ -7915,7 +7865,7 @@
 
 
 
-        psycraft: { name: "Psycraft", color: "bg-pink-500", icon: "🔮", border: "border-pink-400", text: "text-pink-400" },
+        psycraft: { name: "Psycraft", color: "bg-pink-500", icon: "🔮️", border: "border-pink-400", text: "text-pink-400" },
 
 
 
@@ -8083,7 +8033,7 @@
 
 
 
-                if (comment && comment !== 'undefined' && comment !== 'null') desc += ` ✓ ${comment}`; 
+                if (comment && comment !== 'undefined' && comment !== 'null') desc += ` ? ${comment}`; 
 
 
 
@@ -8215,7 +8165,7 @@
 
 
 
-                                desc: `Coords: [${c}]` + (obs && obs !== 'undefined' ? ` ✓ ${obs}` : '')
+                                desc: `Coords: [${c}]` + (obs && obs !== 'undefined' ? ` ? ${obs}` : '')
 
 
 
@@ -8271,7 +8221,7 @@
 
 
 
-                                finalDesc = `Coords: [${coords}]` + (obs && obs !== 'undefined' ? ` ✓ ${obs}` : '');
+                                finalDesc = `Coords: [${coords}]` + (obs && obs !== 'undefined' ? ` ? ${obs}` : '');
 
 
 
@@ -8623,10 +8573,6 @@
 
 
 
-                    if(markAllBtn) markAllBtn.classList.add('hidden');
-
-
-
                     if (index > -1) openOrbGroups.splice(index, 1);
 
 
@@ -8683,7 +8629,7 @@
 
 
 
-                    <button id="mark-all-${safeLocId}" onclick="window.actions.markAllOrbs('${loc}', event)" class="${isOpen ? '' : 'hidden'} bg-purple-600/20 hover:bg-purple-500 text-purple-400 hover:text-white border border-purple-500/30 px-2 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-widest transition-all active:scale-95 shadow-sm" title="Marcar todas as Orbs desta região como concluídas">
+                    <button id="mark-all-${safeLocId}" onclick="window.actions.markAllOrbs('${loc}', event)" class="bg-purple-600/20 hover:bg-purple-500 text-purple-400 hover:text-white border border-purple-500/30 px-2 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-widest transition-all active:scale-95 shadow-sm" title="Marcar todas as Orbs desta região como concluídas">
 
 
 
@@ -8999,7 +8945,7 @@
 
 
 
-            console.log('📊 Usuário logado:', user.email, user.uid);
+            console.log('👤 Usuário logado:', user.email, user.uid);
 
 
 
@@ -9131,7 +9077,7 @@
 
 
 
-        if (elClock) elClock.innerText = now.toLocaleString(currentLang === 'pt' ? 'pt-PT' : 'en-US');
+        if (elClock) elClock.innerText = now.toLocaleString('pt-PT');
 
 
 
@@ -9235,7 +9181,7 @@
 
 
 
-        // Mapeamento de nomes de boss para dados típicos e chaves de storage
+        // Mapeamento de nomes de boss para dados tépicos e chaves de storage
 
 
 
@@ -9243,23 +9189,23 @@
 
 
 
-            'Sunflora': { key: 'boss12', storageKey: 'boss12', emoji: '☀️', icon: '☀️', danger: '⚡ Crítico', energy: 'AMARELA' },
+            'Sunflora': { key: 'boss12', storageKey: 'boss12', emoji: '☀️', icon: '☀️', danger: '⚠ Crítico', energy: 'AMARELA' },
 
 
 
-            'Magcargo': { key: 'boss16', storageKey: 'boss16', emoji: '🌋', icon: '🌋', danger: '⚡ Crítico', energy: 'VERMELHA' },
+            'Magcargo': { key: 'boss16', storageKey: 'boss16', emoji: '♨️', icon: '♨️', danger: '⚠ Crítico', energy: 'VERMELHA' },
 
 
 
-            'Tyranitar': { key: 'boss20', storageKey: 'boss20', emoji: '🪨', icon: '🪨', danger: '🔥 EXTREMO', energy: 'ROXA' },
+            'Tyranitar': { key: 'boss20', storageKey: 'boss20', emoji: '☠️', icon: '☠️', danger: '⚠️ EXTREMO', energy: 'ROXA' },
 
 
 
-            'Dragonair': { key: 'boss12', storageKey: 'boss12', emoji: '🐉', icon: '🐉', danger: '⚡ ALTO', energy: 'AZUL' },
+            'Dragonair': { key: 'boss12', storageKey: 'boss12', emoji: '⚡️', icon: '⚡️', danger: '⚠ ALTO', energy: 'AZUL' },
 
 
 
-            'Mamoswine': { key: 'boss23', storageKey: 'boss23', emoji: '❄️', icon: '❄️', danger: '⚡ Crítico', energy: 'BRANCA' }
+            'Mamoswine': { key: 'boss23', storageKey: 'boss23', emoji: '❄️', icon: '❄️°', danger: '⚠ Crítico', energy: 'BRANCA' }
 
 
 
@@ -9471,19 +9417,19 @@
 
 
 
-                'Magcargo': { emoji: "🔥", icon: "🔥", msg: "MAGCARGO INCINERANDO TUDO!", color: "text-orange-400" },
+                'Magcargo': { emoji: "♨️", icon: "♨️", msg: "MAGCARGO INCINERANDO TUDO!", color: "text-orange-400" },
 
 
 
-                'Tyranitar': { emoji: "🪨", icon: "🪨", msg: "TYRANITAR DEMOLINDO!", color: "text-slate-400" },
+                'Tyranitar': { emoji: "☠️", icon: "☠️", msg: "TYRANITAR DEMOLINDO!", color: "text-slate-400" },
 
 
 
-                'Dragonair': { emoji: "🐉", icon: "🐉", msg: "DRAGONAIR NADANDO!", color: "text-blue-400" },
+                'Dragonair': { emoji: "⚡️", icon: "⚡️", msg: "DRAGONAIR NADANDO!", color: "text-blue-400" },
 
 
 
-                'Mamoswine': { emoji: "❄️", icon: "❄️", msg: "MAMOSWINE CONGELANDO!", color: "text-cyan-300" }
+                'Mamoswine': { emoji: "❄️°", icon: "❄️°", msg: "MAMOSWINE CONGELANDO!", color: "text-cyan-300" }
 
 
 
@@ -9499,11 +9445,11 @@
 
 
 
-                emoji: "🎪",
+                emoji: "🎮️",
 
 
 
-                icon: "🎪",
+                icon: "🎮️",
 
 
 
@@ -9635,7 +9581,7 @@
 
 
 
-                    console.log("áudio bloqueado pelo navegador até interação do utilizador.");
+                    console.log("Áudio bloqueado pelo navegador até interação do utilizador.");
 
 
 
@@ -9663,27 +9609,27 @@
 
 
 
-                        'Sunflora': { title: "☀️ SUNFLORA SELVAGEM APARECEU! ☀️", emoji: "☀️", type: "SOLAR", threat: "⚡ Crítico" },
+                        'Sunflora': { title: "☀️ SUNFLORA SELVAGEM APARECEU! ☀️", emoji: "☀️", type: "SOLAR", threat: "⚠ Crítico" },
 
 
 
-                        'Magcargo': { title: "🔥 MAGCARGO INCANDESCENTE! 🔥", emoji: "🔥", type: "FOGO", threat: "⚡ Crítico" },
+                        'Magcargo': { title: "♨️ MAGCARGO INCANDESCENTE! ♨️", emoji: "♨️", type: "FOGO", threat: "⚠ Crítico" },
 
 
 
-                        'Tyranitar': { title: "🪨 TYRANITAR DESPERTOU! 🪨", emoji: "🪨", type: "ROCHA", threat: "🔥 EXTREMO" },
+                        'Tyranitar': { title: "☠️ TYRANITAR DESPERTOU! ☠️", emoji: "☠️", type: "ROCHA", threat: "⚠️ EXTREMO" },
 
 
 
-                        'Dragonair': { title: "🐉 DRAGONAIR APARECEU! 🐉", emoji: "🐉", type: "DRAGÃO", threat: "⚡ ALTO" },
+                        'Dragonair': { title: "⚡️ DRAGONAIR APARECEU! ⚡️", emoji: "⚡️", type: "DRAGÃO", threat: "⚠ ALTO" },
 
 
 
-                        'Mamoswine': { title: "❄️ MAMOSWINE GELADO! ❄️", emoji: "❄️", type: "GELO", threat: "⚡ Crítico" },
+                        'Mamoswine': { title: "❄️° MAMOSWINE GELADO! ❄️°", emoji: "❄️°", type: "GELO", threat: "⚠ Crítico" },
 
 
 
-                        'Poképark': { title: "🎪 POKÉPARK COMEÇANDO AGORA! 🎪", emoji: "🎪", type: "EVENTO", threat: "⚡ ALTO" }
+                        'Poképark': { title: "🎪️ POKÉPARK COMEÇANDO AGORA! 🎪️", emoji: "🎪️", type: "EVENTO", threat: "⚠ ALTO" }
 
 
 
@@ -9699,11 +9645,11 @@
 
 
 
-                        title: `🎪 ${nextEvent.displayName.toUpperCase()} EM ALERTA! 🎪`,
+                        title: `⚠️ ${nextEvent.displayName.toUpperCase()} EM ALERTA! ⚠️`,
 
 
 
-                        emoji: "🎪", type: "COMBATE", threat: "⚡ Crítico"
+                        emoji: "🎮️", type: "COMBATE", threat: "⚠ Crítico"
 
 
 
@@ -9715,7 +9661,7 @@
 
 
 
-                    const body = `${msgData.emoji} ${msgData.title}\n🔴🔴🔴🔴🔴🔴🔴🔴🔴\n⚡ TIPO: ${msgData.type}\n📊 Nível: ${msgData.threat}\n⏰ Início: 5 minutos\n\n💪 PREPARE-SE SEMPRE!`;
+                    const body = `${msgData.emoji} ${msgData.title}\n⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️⚡️\n⚡ TIPO: ${msgData.type}\n⚡️ Nível: ${msgData.threat}\n? Início: 5 minutos\n\n⚔️⚔️ PREPARE-SE SEMPRE!`;
 
 
 
@@ -9731,7 +9677,7 @@
 
 
 
-                    new Notification(`🚨 ALERTA Crítico DE COMBATE! 🚨`, {
+                    new Notification(`🎮️ ALERTA CRÍTICO DE COMBATE! 🎮️`, {
 
 
 
@@ -9775,7 +9721,7 @@
 
 
 
-                // 3. Feedback Visual Gamer (Alerta típico da Pokébola)
+                // 3. Feedback Visual Gamer (Alerta tépico da Pokébola)
 
 
 
@@ -9795,27 +9741,27 @@
 
 
 
-                        'Sunflora': { emoji: "☀️", title: "SUNFLORA SELVAGEM APARECEU", type: "SOLAR", typeBadge: "pokemon-type-grass", threat: "⚡ Crítico" },
+                        'Sunflora': { emoji: "☀️", title: "SUNFLORA SELVAGEM APARECEU", type: "SOLAR", typeBadge: "pokemon-type-grass", threat: "⚠ Crítico" },
 
 
 
-                        'Magcargo': { emoji: "🔥", title: "MAGCARGO INCANDESCENTE", type: "FOGO", typeBadge: "pokemon-type-fire", threat: "⚡ Crítico" },
+                        'Magcargo': { emoji: "♨️", title: "MAGCARGO INCANDESCENTE", type: "FOGO", typeBadge: "pokemon-type-fire", threat: "⚠ Crítico" },
 
 
 
-                        'Tyranitar': { emoji: "🪨", title: "TYRANITAR DESPERTOU", type: "ROCHA", typeBadge: "pokemon-type-rock", threat: "🔥 EXTREMO" },
+                        'Tyranitar': { emoji: "☠️", title: "TYRANITAR DESPERTOU", type: "ROCHA", typeBadge: "pokemon-type-rock", threat: "⚠️ EXTREMO" },
 
 
 
-                        'Dragonair': { emoji: "🐉", title: "DRAGONAIR APARECEU", type: "DRAGÃO", typeBadge: "pokemon-type-dragon", threat: "⚡ ALTO" },
+                        'Dragonair': { emoji: "⚡️", title: "DRAGONAIR APARECEU", type: "DRAGÃO", typeBadge: "pokemon-type-dragon", threat: "⚠ ALTO" },
 
 
 
-                        'Mamoswine': { emoji: "❄️", title: "MAMOSWINE GELADO", type: "GELO", typeBadge: "pokemon-type-ice", threat: "⚡ Crítico" },
+                        'Mamoswine': { emoji: "❄️°", title: "MAMOSWINE GELADO", type: "GELO", typeBadge: "pokemon-type-ice", threat: "⚠ Crítico" },
 
 
 
-                        'Poképark': { emoji: "🎪", title: "POKÉPARK COMEÇANDO AGORA", type: "EVENTO ESPECIAL", typeBadge: "pokemon-type-event", threat: "⚡ ALTO" }
+                        'Poképark': { emoji: "🎪️", title: "POKÉPARK COMEÇANDO AGORA", type: "EVENTO ESPECIAL", typeBadge: "pokemon-type-event", threat: "⚠ ALTO" }
 
 
 
@@ -9831,7 +9777,7 @@
 
 
 
-                        emoji: "🎪",
+                        emoji: "🎮️",
 
 
 
@@ -9847,7 +9793,7 @@
 
 
 
-                        threat: "⚡ Crítico"
+                        threat: "⚠ Crítico"
 
 
 
@@ -9867,7 +9813,7 @@
 
 
 
-                    document.getElementById('boss-title').textContent = `🎪 ${boss.title}! 🎪`;
+                    document.getElementById('boss-title').textContent = `⚠️ ${boss.title}! ⚠️`;
 
 
 
@@ -10059,7 +10005,7 @@
 
 
 
-                // Adiciona ícone de Pokébola girando
+                // Adiciona Ícone de Pokébola girando
 
 
 
@@ -10689,11 +10635,11 @@
 
 
 
-                            <span class="px-2 py-1 rounded text-[8px] font-black ${fb.type === 'bug' ? 'bg-red-500/20 text-red-400' : 'bg-blue-500/20 text-blue-400'}">${fb.type === 'bug' ? '🐛 Bug' : '💡 Sugestão'}</span>
+                            <span class="px-2 py-1 rounded text-[8px] font-black ${fb.type === 'bug' ? 'bg-red-500/20 text-red-400' : 'bg-blue-500/20 text-blue-400'}">${fb.type === 'bug' ? '🐛️ Bug' : '💡️ Sugestão'}</span>
 
 
 
-                            <button onclick="window.actions.deleteFeedback('${fb.id}')" class="text-red-500 hover:text-red-400 text-xs">~</button>
+                            <button onclick="window.actions.deleteFeedback('${fb.id}')" class="text-red-500 hover:text-red-400 text-xs">Apagar</button>
 
 
 
@@ -10813,7 +10759,7 @@
 
 
 
-                    clans[char.clan || 'Sem 🏰 Clã'] = (clans[char.clan || 'Sem 🏰 Clã'] || 0) + 1;
+                    clans[char.clan || 'Sem Clã'] = (clans[char.clan || 'Sem Clã'] || 0) + 1;
 
 
 
@@ -10857,7 +10803,7 @@
 
 
 
-                        <p class="text-[10px] text-slate-400 uppercase font-black">📊 Usuários</p>
+                        <p class="text-[10px] text-slate-400 uppercase font-black">👥️ Usuários</p>
 
 
 
@@ -10873,7 +10819,7 @@
 
 
 
-                        <p class="text-[10px] text-slate-400 uppercase font-black">👥 Personagens</p>
+                        <p class="text-[10px] text-slate-400 uppercase font-black">👥️ Personagens</p>
 
 
 
@@ -10933,7 +10879,7 @@
 
 
 
-                        <p class="text-[9px] text-slate-400 uppercase font-black mb-2">Top 🏰 Clãs</p>
+                        <p class="text-[9px] text-slate-400 uppercase font-black mb-2">Top 🏰️ Clãs</p>
 
 
 
@@ -11185,7 +11131,7 @@
 
 
 
-                    <h3 class="text-sm font-black text-white mb-3">🎮 Novo Anúncio</h3>
+                    <h3 class="text-sm font-black text-white mb-3">📢️ Novo Anúncio</h3>
 
 
 
@@ -11213,7 +11159,7 @@
 
 
 
-                    <h3 class="text-sm font-black text-white mb-3">📊 Anúncios Ativos (${announcements.length})</h3>
+                    <h3 class="text-sm font-black text-white mb-3">📢️ Anúncios Ativos (${announcements.length})</h3>
 
 
 
@@ -11401,7 +11347,7 @@
 
 
 
-                                <p class="text-[8px] text-slate-400">👤 ${u.charCount} personagem${u.charCount !== 1 ? 's' : ''}</p>
+                                <p class="text-[8px] text-slate-400">👤️ ${u.charCount} personagem${u.charCount !== 1 ? 's' : ''}</p>
 
 
 
@@ -11473,7 +11419,7 @@
 
 
 
-                                <p class="text-[8px] text-slate-400">${visit.referrerHost || 'direct'} • ${visit.platform || 'unknown'} • ${visit.screen || '--'}</p>
+                                <p class="text-[8px] text-slate-400">${visit.referrerHost || 'direct'} ã ${visit.platform || 'unknown'} ã ${visit.screen || '--'}</p>
 
 
 
@@ -11485,7 +11431,7 @@
 
 
 
-                                <p class="text-[8px] text-slate-500 uppercase">Última visita</p>
+                                <p class="text-[8px] text-slate-500 uppercase">última visita</p>
 
 
 
@@ -11541,7 +11487,7 @@
 
 
 
-                    <h3 class="text-sm font-black text-white mb-3">🔧 Gerenciar Conteúdo</h3>
+                    <h3 class="text-sm font-black text-white mb-3">📝️ Gerenciar Conteúdo</h3>
 
 
 
@@ -11581,7 +11527,7 @@
 
 
 
-                            <p class="text-[9px] font-black text-slate-400 mb-2">🎪 Bosses Disponíveis para Editar:</p>
+                            <p class="text-[9px] font-black text-slate-400 mb-2">🎮️ Bosses Disponíveis para Editar:</p>
 
 
 
@@ -11589,31 +11535,31 @@
 
 
 
-                                <li>✓ Muchmoney (Red - 40 Energy)</li>
+                                <li>🔴 Muchmoney (Red - 40 Energy)</li>
 
 
 
-                                <li>✓ Hisuian Electrode (Red - 52 Energy)</li>
+                                <li>🔴 Hisuian Electrode (Red - 52 Energy)</li>
 
 
 
-                                <li>✓ Mecha Iron-Masked Marauder (Red - 52 Energy)</li>
+                                <li>🔴 Mecha Iron-Masked Marauder (Red - 52 Energy)</li>
 
 
 
-                                <li>✓ The Celestial Serpent (Red - 52 Energy)</li>
+                                <li>🔴 The Celestial Serpent (Red - 52 Energy)</li>
 
 
 
-                                <li>✓ Mewtwo Strikes Back (Blue - 80 Energy)</li>
+                                <li>🔵 Mewtwo Strikes Back (Blue - 80 Energy)</li>
 
 
 
-                                <li>✓ Below Zero (Red - 40 Energy)</li>
+                                <li>🔴 Below Zero (Red - 40 Energy)</li>
 
 
 
-                                <li>✓ Dorabelle's Wrath (Red - 52 Energy)</li>
+                                <li>🔴 Dorabelle's Wrath (Red - 52 Energy)</li>
 
 
 
@@ -11673,7 +11619,7 @@
 
 
 
-                    <p class="font-black mb-1">💡 Dica:</p>
+                    <p class="font-black mb-1">💡️ Dica:</p>
 
 
 
@@ -11737,11 +11683,7 @@
 
 
 
-                    <h3 class="text-sm font-black text-white mb-3">📊 Configurações do Sistema</h3>
-
-
-
-                    
+                    <h3 class="text-sm font-black text-white mb-3">⚙️ Configurações do Sistema</h3>
 
 
 
@@ -11757,15 +11699,11 @@
 
 
 
-                            <span class="text-xs text-slate-300 font-black">🔧 Modo Manutenção</span>
+                            <span class="text-xs text-slate-300 font-black">🛠️ Modo Manutenção</span>
 
 
 
                         </label>
-
-
-
-                        
 
 
 
@@ -11777,15 +11715,11 @@
 
 
 
-                            <span class="text-xs text-slate-300 font-black">⛔ Desabilitar Feedback de Usuários</span>
+                            <span class="text-xs text-slate-300 font-black">🚫 Desabilitar Feedback de Usuários</span>
 
 
 
                         </label>
-
-
-
-                        
 
 
 
@@ -11817,10 +11751,6 @@
 
 
 
-                        
-
-
-
                         <div class="bg-slate-900 p-3 rounded border border-slate-700">
 
 
@@ -11837,11 +11767,7 @@
 
 
 
-                        
-
-
-
-                        <button onclick="window.actions.saveSettings()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-2 rounded text-xs">~~ Salvar Todas as Configurações</button>
+                        <button onclick="window.actions.saveSettings()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-2 rounded text-xs">💾 Salvar Todas as Configurações</button>
 
 
 
@@ -11853,15 +11779,11 @@
 
 
 
-                
-
-
-
                 <div class="bg-slate-950 p-4 rounded-xl border border-yellow-900/40">
 
 
 
-                    <p class="text-[10px] font-black text-yellow-400 mb-2">⚡ AVISO:</p>
+                    <p class="text-[10px] font-black text-yellow-400 mb-2">⚠️ AVISO:</p>
 
 
 
@@ -11870,10 +11792,6 @@
 
 
                 </div>
-
-
-
-                
 
 
 
@@ -11889,19 +11807,19 @@
 
 
 
-                        <p>✓ Dados de Usuários: /artifacts/pxgcheck/users/</p>
+                        <p>Dados de Usuários: /artifacts/pxgcheck/users/</p>
 
 
 
-                        <p>✓ Feedbacks: /artifacts/pxgcheck/public/data/feedbacks</p>
+                        <p>Feedbacks: /artifacts/pxgcheck/public/data/feedbacks</p>
 
 
 
-                        <p>✓ Anúncios: /artifacts/pxgcheck/public/data/announcements</p>
+                        <p>Anúncios: /artifacts/pxgcheck/public/data/announcements</p>
 
 
 
-                        <p>✓ Personagens: /users/{uid}/characters/</p>
+                        <p>Personagens: /users/{uid}/characters/</p>
 
 
 
@@ -12230,6 +12148,7 @@
 
 
 
+
     window.actions.updateMaxLevel = () => {
 
 
@@ -12426,7 +12345,7 @@
 
 
 
-        return date.toLocaleString(currentLang === 'pt' ? 'pt-PT' : 'en-US', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        return date.toLocaleString('pt-PT', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
 
 
@@ -12694,15 +12613,15 @@
 
 
 
-            if (index === 0) medal = `<span class="text-xl" title="1ª Lugar">~~</span>`;
+            if (index === 0) medal = `<span class="text-xl" title="1º Lugar">🥇</span>`;
 
 
 
-            else if (index === 1) medal = `<span class="text-xl" title="2ª Lugar">~~</span>`;
+            else if (index === 1) medal = `<span class="text-xl" title="2º Lugar">🥈</span>`;
 
 
 
-            else if (index === 2) medal = `<span class="text-xl" title="3ª Lugar">~~</span>`;
+            else if (index === 2) medal = `<span class="text-xl" title="3º Lugar">🥉</span>`;
 
 
 
@@ -12734,7 +12653,7 @@
 
 
 
-                            <span class="text-[9px] font-bold text-slate-500 uppercase">Lv ${char.level} ✓ ${char.world}</span>
+                            <span class="text-[9px] font-bold text-slate-500 uppercase">Lv ${char.level} • ${char.world}</span>
 
 
 
@@ -12754,7 +12673,7 @@
 
 
 
-                        <span class="text-[7px] uppercase font-bold text-slate-600">Este Mês</span>
+                        <span class="text-[7px] uppercase font-bold text-slate-600">Este Màs</span>
 
 
 
@@ -13062,15 +12981,15 @@
 
 
 
-                                <span class="text-[8px] font-black px-1.5 py-0.5 rounded flex items-center gap-1 ${clan.color} bg-opacity-20 ${clan.text} ${clan.border} border border-opacity-30 shadow-sm" title="🏰 Clã ${clan.name}">${clan.icon} ${clan.name}</span>
+                                <span class="text-[8px] font-black px-1.5 py-0.5 rounded flex items-center gap-1 ${clan.color} bg-opacity-20 ${clan.text} ${clan.border} border border-opacity-30 shadow-sm" title="⚔️ Clã ${clan.name}">${clan.icon} ${clan.name}</span>
 
 
 
-                                <p class="text-[8px] font-bold ${getWorldColor(char.world).text} uppercase">${getWorldColor(char.world).icon} ${char.world} ✓ <span class="font-black text-red-600">LV <span id="lvl-${char.id}">${char.level}</span></span></p>
+                                <p class="text-[8px] font-bold ${getWorldColor(char.world).text} uppercase">${getWorldColor(char.world).icon} ${char.world} • <span class="font-black text-red-600">LV <span id="lvl-${char.id}">${char.level}</span></span></p>
 
 
 
-                                <button onclick="window.actions.levelUp('${char.id}', ${char.level}, event)" class="bg-blue-600/20 hover:bg-blue-500/40 text-blue-400 rounded px-1.5 py-0.5 text-[8px] font-black transition-all" title="Subir de Nível">⬆</button>
+                                <button onclick="window.actions.levelUp('${char.id}', ${char.level}, event)" class="bg-blue-600/20 hover:bg-blue-500/40 text-blue-400 rounded px-1.5 py-0.5 text-[8px] font-black transition-all" title="Subir de Nível">⬆️</button>
 
 
 
@@ -13078,11 +12997,11 @@
 
 
 
-                            <p class="text-[8px] font-bold ${getProfessionColor(char.profession).text}/80 uppercase mt-0.5">${char.profession || 'Sem Profissão'} (Lv ${char.profLevel || 0})${char.specialization ? ` ✓ ${char.specialization}` : ''} <span class="text-purple-500">✓ NW Lv ${char.nwLevel || 0}</span></p>
+                            <p class="text-[8px] font-bold ${getProfessionColor(char.profession).text}/80 uppercase mt-0.5">${char.profession || 'Sem Profissão'} (Lv ${char.profLevel || 0})${char.specialization ? ` • ${char.specialization}` : ''} <span class="text-purple-500">🔰 NW Lv ${char.nwLevel || 0}</span></p>
 
 
 
-                            <p class="text-[8px] font-bold text-slate-400 uppercase mt-1">🐟 Pesca: ${char.fishingLevel || 0} ✓ ~~ ${char.pokemonCaught || 0}</p>
+                            <p class="text-[8px] font-bold text-slate-400 uppercase mt-1">🎣️ <span class="text-cyan-300">Pesca</span>: <span class="text-cyan-200 text-[9px] font-black">${char.fishingLevel || 0}</span> • 🔴 <span class="text-emerald-300">Capturas</span>: <span class="text-emerald-200 text-[9px] font-black">${char.pokemonCaught || 0}</span></p>
 
 
 
@@ -13098,25 +13017,25 @@
 
 
 
-                        <button onclick="window.actions.toggleCollapse('${char.id}')" class="text-red-500 hover:text-red-400 p-1.5 transition-colors" title="${isCollapsed ? 'Maximizar Personagem' : 'Minimizar Personagem'}">
+                        <button onclick="event.stopPropagation(); window.actions.toggleCollapse('${char.id}')" class="text-red-500 hover:text-red-400 p-1.5 transition-colors" title="${isCollapsed ? 'Maximizar Personagem' : 'Minimizar Personagem'}">
                             <svg class="w-5 h-5 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : 'rotate-0'}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
 
 
 
-                        <div class="w-px h-4 bg-slate-800 my-auto ${isCollapsed ? 'hidden' : 'block'}"></div>
+                        <div class="w-px h-4 bg-slate-800 my-auto ${isCollapsed ? 'invisible' : 'visible'}"></div>
 
 
 
-                        <button onclick="window.actions.exportData('${char.id}')" class="text-slate-500 hover:text-emerald-400 font-bold p-1.5 transition-colors ${isCollapsed ? 'hidden' : 'block'}" title="Exportar Dados">🗄️</button>
+                        <button onclick="event.stopPropagation(); window.actions.exportData('${char.id}')" class="text-slate-500 hover:text-emerald-400 font-bold p-1.5 transition-colors" title="Exportar Dados">📤️</button>
 
 
 
-                        <button onclick="ui.openModal('${char.id}')" class="text-slate-500 hover:text-blue-400 font-bold p-1.5 transition-colors ${isCollapsed ? 'hidden' : 'block'}" title="Editar Configurações">✏</button>
+                        <button onclick="event.stopPropagation(); ui.openModal('${char.id}')" class="text-slate-500 hover:text-blue-400 font-bold p-1.5 transition-colors" title="Editar Configurações">✏️</button>
 
 
 
-                        <button onclick="window.actions.askDelete('${char.id}')" class="text-slate-600 hover:text-red-500 font-bold p-1.5 transition-colors ${isCollapsed ? 'hidden' : 'block'}" title="Apagar Personagem">&times;</button>
+                        <button onclick="event.stopPropagation(); window.actions.askDelete('${char.id}')" class="text-slate-600 hover:text-red-500 font-bold p-1.5 transition-colors ${isCollapsed ? 'invisible' : 'visible'}" title="Apagar Personagem">&times;</button>
 
 
 
@@ -13144,7 +13063,7 @@
 
 
 
-                            <div class="pokeball-core"><div class="pokeball-button"><span class="pokeball-pct" id="pct-text-${char.id}">0%</span></div></div>
+                            <div class="pokeball-core"><div class="pokeball-button"><span class="pokeball-pct" id="pct-text-${char.id}">0<span class="pct-sign">%</span></span></div></div>
 
 
 
@@ -13192,7 +13111,7 @@
 
 
 
-                                <button onclick="ui.openFinanceModal('${char.id}', 'set')" class="w-6 h-6 rounded bg-blue-500/10 text-blue-400 hover:bg-blue-500/30 flex items-center justify-center transition-all shadow-sm border border-blue-500/20 active:scale-90" title="${tStrings.finSet}">📊</button>
+                                <button onclick="ui.openFinanceModal('${char.id}', 'set')" class="w-6 h-6 rounded bg-blue-500/10 text-blue-400 hover:bg-blue-500/30 flex items-center justify-center transition-all shadow-sm border border-blue-500/20 active:scale-90" title="${tStrings.finSet}">💵️</button>
 
 
 
@@ -13204,7 +13123,7 @@
 
 
 
-                                <button onclick="ui.openHistoryModal('${char.id}')" class="w-6 h-6 rounded bg-slate-500/10 text-slate-400 hover:bg-slate-500/30 flex items-center justify-center transition-all shadow-sm border border-slate-500/20 active:scale-90" title="Histórico">📝</button>
+                                <button onclick="ui.openHistoryModal('${char.id}')" class="w-6 h-6 rounded bg-slate-500/10 text-slate-400 hover:bg-slate-500/30 flex items-center justify-center transition-all shadow-sm border border-slate-500/20 active:scale-90" title="Histórico">🕓️</button>
 
 
 
@@ -13368,28 +13287,16 @@
 
 
 
+
             grid.appendChild(card);
 
 
 
-            
-
-
-
-            if (!isCollapsed) {
-
-
-
-                setTimeout(() => { animatePercentage(char.id, pct); }, 50);
-
-
-
-            }
+            setTimeout(() => { animatePercentage(char.id, pct); }, 50);
 
 
 
         });
-
 
 
     }
@@ -13460,11 +13367,11 @@
 
 
 
-                            <span class="text-[7.5px] font-bold text-emerald-500/90 uppercase tracking-widest">✅ ${t.doneAt}: ${formatDateTime(task.at)}</span>
+                            <span class="text-[7.5px] font-bold text-emerald-500/90 uppercase tracking-widest">? ${t.doneAt}: ${formatDateTime(task.at)}</span>
 
 
 
-                            <span class="text-[7.5px] font-bold text-blue-400/90 uppercase tracking-widest">🔄 ${t.resetAt}: ${getNextAvailableText(cat, task.at)}</span>
+                            <span class="text-[7.5px] font-bold text-blue-400/90 uppercase tracking-widest">⏰️ ${t.resetAt}: ${getNextAvailableText(cat, task.at)}</span>
 
 
 
@@ -13532,7 +13439,7 @@
 
 
 
-            textEl.innerText = `${Math.floor(current)}%`;
+            textEl.innerHTML = `${Math.floor(current)}<span class="pct-sign">%</span>`;
 
 
 
@@ -13649,6 +13556,9 @@
 
 
         updateBossCycle: window.actions?.updateBossCycle,
+
+
+
 
 
 
@@ -14048,7 +13958,7 @@
 
 
 
-            content += `Mundo: ${char.world} | Level: ${char.level} | 🏰 Clã: ${char.clan.toUpperCase()}\r\n`;
+            content += `Mundo: ${char.world} | Level: ${char.level} | ⚔️ Clã: ${char.clan.toUpperCase()}\r\n`;
 
 
 
@@ -14752,7 +14662,7 @@
 
 
 
-        setLanguage: (lang) => { currentLang = lang; localStorage.setItem('pxg_lang', lang); render(); },
+        setLanguage: () => { currentLang = 'pt'; render(); },
 
 
 
@@ -14844,7 +14754,7 @@
 
 
 
-                if (prof === 'Professor') options += '<option value="Alquimista">Alquimista</option><option value="Académico">Académico</option>';
+                if (prof === 'Professor') options += '<option value="Alquimista">Alquimista</option><option value="Acadêmico">Acadêmico</option>';
 
 
 
@@ -15428,7 +15338,7 @@
 
 
 
-                pokelog: 'Pokélog (Game)'
+                pokelog: 'Pokélog'
 
 
 
@@ -15970,7 +15880,7 @@
 
 
 
-                    btn.innerText = 'Aba Anónima Bloqueada!'; btn.classList.add('bg-red-600');
+                    btn.innerText = 'Aba Anônima Bloqueada!'; btn.classList.add('bg-red-600');
 
 
 
@@ -16002,7 +15912,7 @@
 
 
 
-                await addDoc(collection(db, 'artifacts', DB_COLLECTION, 'public', 'data', 'feedbacks'), { uid: auth.currentUser.uid || 'anonimo', type: type, text: sanitizeHTML(text), dataLeituraFacil: new Date().toLocaleString(currentLang === 'pt' ? 'pt-PT' : 'en-US'), date: new Date().toISOString() });
+                await addDoc(collection(db, 'artifacts', DB_COLLECTION, 'public', 'data', 'feedbacks'), { uid: auth.currentUser.uid || 'anonimo', type: type, text: sanitizeHTML(text), dataLeituraFacil: new Date().toLocaleString('pt-PT'), date: new Date().toISOString() });
 
 
 
@@ -16018,7 +15928,7 @@
 
 
 
-                btn.innerText = 'Erro de Segurança (Aba Anónima~)'; btn.classList.add('bg-red-600'); 
+                btn.innerText = 'Erro de Segurança (Aba Anônima~)'; btn.classList.add('bg-red-600'); 
 
 
 
@@ -16467,3 +16377,7 @@
 
 
 </html>
+
+
+
+
